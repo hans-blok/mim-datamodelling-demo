@@ -60,6 +60,7 @@ nav:
   - Home: index.md
   - Aanpak: aanpak.md
   - Startup: startup.md
+  - Demo: demo/index.md
   - Kennisbank:
       - kennisbank/index.md
       - "MIM": kennisbank/mim.md

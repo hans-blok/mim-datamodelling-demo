@@ -3,7 +3,7 @@ titel: Homepage datamodellering-demo
 doel: Ingang tot de demo voor datamodellering met ORM, Factum en AI, met verwijzingen naar de kennisbank en de voorbeelden.
 auteur: Hans Blok
 datum: 2026-11-18
-wijziging: Tegel voor de pagina Startup toegevoegd.
+wijziging: Tegel Voorbeelden verwijst nu naar de pagina Demo.
 ---
 
 # Datamodellering-demo
@@ -46,9 +46,9 @@ De inhoud is verkennend. Het is geen vastgesteld datamodel en geen productieklar
 
     ---
 
-    De uitgewerkte voorbeelden staan in de map `demo` van de repository, ingedeeld naar de vier niveaus van MIM.
+    Het voorbeeld tennistoernooi als ORM-model, met de relatie naar MIM.
 
-    [:octicons-mark-github-16: Bekijk de repository](https://github.com/hans-blok/mim-datamodelling-demo/tree/main/demo)
+    [:octicons-arrow-right-24: Naar de demo](demo/index.md)
 
 - **Doel en werkwijze**
 

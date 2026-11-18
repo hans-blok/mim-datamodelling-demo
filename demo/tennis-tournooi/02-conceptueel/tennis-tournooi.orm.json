@@ -14,8 +14,8 @@
       "id": "ot_player",
       "name": "Speler",
       "kind": "entity",
-      "refMode": "nr",
-      "dataType": "integer"
+      "refMode": "bondsnummer",
+      "dataType": "string"
     },
     {
       "id": "ot_match",
@@ -23,12 +23,6 @@
       "kind": "entity",
       "refMode": "nr",
       "dataType": "integer"
-    },
-    {
-      "id": "ot_name",
-      "name": "Spelersnaam",
-      "kind": "value",
-      "dataType": "string"
     },
     {
       "id": "ot_round",
@@ -41,6 +35,36 @@
       "name": "Aanvangstijd",
       "kind": "value",
       "dataType": "datetime"
+    },
+    {
+      "id": "ot_firstname",
+      "name": "Voornaam",
+      "kind": "value",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_lastname",
+      "name": "Achternaam",
+      "kind": "value",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_rating",
+      "name": "Rating",
+      "kind": "value",
+      "dataType": "integer"
+    },
+    {
+      "id": "ot_result",
+      "name": "Uitslag",
+      "kind": "value",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_z7l0u1",
+      "name": "ValueType",
+      "kind": "value",
+      "dataType": "string"
     }
   ],
   "factTypes": [
@@ -73,30 +97,6 @@
             "r_player_tournament_player"
           ],
           "text": "{0} heeft {1} als deelnemer"
-        }
-      ]
-    },
-    {
-      "id": "ft_player_name",
-      "roles": [
-        {
-          "id": "r_player_name_player",
-          "objectTypeId": "ot_player"
-        },
-        {
-          "id": "r_player_name_name",
-          "objectTypeId": "ot_name"
-        }
-      ],
-      "readings": [
-        {
-          "id": "rd_player_name",
-          "roleOrder": [
-            "r_player_name_player",
-            "r_player_name_name"
-          ],
-          "text": "{0} heeft {1}",
-          "isPrimary": true
         }
       ]
     },
@@ -251,6 +251,102 @@
           "isPrimary": true
         }
       ]
+    },
+    {
+      "id": "ft_player_firstname",
+      "roles": [
+        {
+          "id": "r_player_firstname_player",
+          "objectTypeId": "ot_player"
+        },
+        {
+          "id": "r_player_firstname_firstname",
+          "objectTypeId": "ot_firstname"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_player_firstname",
+          "roleOrder": [
+            "r_player_firstname_player",
+            "r_player_firstname_firstname"
+          ],
+          "text": "{0} heeft als voornaam {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_player_lastname",
+      "roles": [
+        {
+          "id": "r_player_lastname_player",
+          "objectTypeId": "ot_player"
+        },
+        {
+          "id": "r_player_lastname_lastname",
+          "objectTypeId": "ot_lastname"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_player_lastname",
+          "roleOrder": [
+            "r_player_lastname_player",
+            "r_player_lastname_lastname"
+          ],
+          "text": "{0} heeft als achternaam {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_player_rating",
+      "roles": [
+        {
+          "id": "r_player_rating_player",
+          "objectTypeId": "ot_player"
+        },
+        {
+          "id": "r_player_rating_rating",
+          "objectTypeId": "ot_rating"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_player_rating",
+          "roleOrder": [
+            "r_player_rating_player",
+            "r_player_rating_rating"
+          ],
+          "text": "{0} heeft rating {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_match_result",
+      "roles": [
+        {
+          "id": "r_match_result_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_result_result",
+          "objectTypeId": "ot_result"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_result",
+          "roleOrder": [
+            "r_match_result_match",
+            "r_match_result_result"
+          ],
+          "text": "{0} heeft als uitslag {1}",
+          "isPrimary": true
+        }
+      ]
     }
   ],
   "subtypeRelations": [],
@@ -261,20 +357,6 @@
       "roles": [
         "r_player_tournament_player",
         "r_player_tournament_tournament"
-      ]
-    },
-    {
-      "id": "uc_player_name",
-      "kind": "uniqueness",
-      "roles": [
-        "r_player_name_player"
-      ]
-    },
-    {
-      "id": "mc_player_name",
-      "kind": "mandatory",
-      "roles": [
-        "r_player_name_player"
       ]
     },
     {
@@ -372,6 +454,48 @@
           "value": "FINALE"
         }
       ]
+    },
+    {
+      "id": "uc_player_firstname",
+      "kind": "uniqueness",
+      "roles": [
+        "r_player_firstname_player"
+      ]
+    },
+    {
+      "id": "mc_player_firstname",
+      "kind": "mandatory",
+      "roles": [
+        "r_player_firstname_player"
+      ]
+    },
+    {
+      "id": "uc_player_lastname",
+      "kind": "uniqueness",
+      "roles": [
+        "r_player_lastname_player"
+      ]
+    },
+    {
+      "id": "mc_player_lastname",
+      "kind": "mandatory",
+      "roles": [
+        "r_player_lastname_player"
+      ]
+    },
+    {
+      "id": "uc_player_rating",
+      "kind": "uniqueness",
+      "roles": [
+        "r_player_rating_player"
+      ]
+    },
+    {
+      "id": "uc_match_result",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_result_match"
+      ]
     }
   ],
   "diagram": {
@@ -382,32 +506,23 @@
       },
       "ot_player": {
         "x": 420,
-        "y": 200
+        "y": 100
       },
       "ot_match": {
         "x": 420,
         "y": 380
       },
-      "ot_name": {
-        "x": 720,
-        "y": 200
-      },
       "ot_round": {
-        "x": 120,
-        "y": 380
+        "x": 110,
+        "y": 410
       },
       "ot_start": {
-        "x": 720,
+        "x": 690,
         "y": 380
       },
       "ft_player_tournament": {
-        "x": 270,
-        "y": 200,
-        "orientation": "horizontal"
-      },
-      "ft_player_name": {
-        "x": 570,
-        "y": 200,
+        "x": 120,
+        "y": 110,
         "orientation": "horizontal"
       },
       "ft_match_tournament": {
@@ -421,24 +536,64 @@
         "orientation": "horizontal"
       },
       "ft_match_start": {
-        "x": 570,
-        "y": 380,
+        "x": 590,
+        "y": 460,
         "orientation": "horizontal"
       },
       "ft_match_first": {
-        "x": 360,
-        "y": 290,
+        "x": 320,
+        "y": 210,
         "orientation": "vertical"
       },
       "ft_match_second": {
-        "x": 420,
+        "x": 450,
         "y": 290,
         "orientation": "vertical"
       },
       "ft_match_winner": {
-        "x": 480,
-        "y": 290,
+        "x": 580,
+        "y": 210,
         "orientation": "vertical"
+      },
+      "ot_firstname": {
+        "x": 720,
+        "y": 30
+      },
+      "ot_lastname": {
+        "x": 720,
+        "y": 110
+      },
+      "ot_rating": {
+        "x": 420,
+        "y": 0
+      },
+      "ot_result": {
+        "x": 720,
+        "y": 300
+      },
+      "ft_player_firstname": {
+        "x": 570,
+        "y": 30,
+        "orientation": "horizontal"
+      },
+      "ft_player_lastname": {
+        "x": 570,
+        "y": 110,
+        "orientation": "horizontal"
+      },
+      "ft_player_rating": {
+        "x": 420,
+        "y": 50,
+        "orientation": "vertical"
+      },
+      "ft_match_result": {
+        "x": 570,
+        "y": 340,
+        "orientation": "horizontal"
+      },
+      "ot_z7l0u1": {
+        "x": 20,
+        "y": 290
       }
     }
   }

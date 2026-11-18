@@ -1,0 +1,445 @@
+{
+  "$schema": "https://www.factum-orm.com/schema/orm-model-2.schema.json",
+  "version": 2,
+  "name": "tennis-tournooi",
+  "objectTypes": [
+    {
+      "id": "ot_tournament",
+      "name": "Toernooi",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_player",
+      "name": "Speler",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "integer"
+    },
+    {
+      "id": "ot_match",
+      "name": "Wedstrijd",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "integer"
+    },
+    {
+      "id": "ot_name",
+      "name": "Spelersnaam",
+      "kind": "value",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_round",
+      "name": "Ronde",
+      "kind": "value",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_start",
+      "name": "Aanvangstijd",
+      "kind": "value",
+      "dataType": "datetime"
+    }
+  ],
+  "factTypes": [
+    {
+      "id": "ft_player_tournament",
+      "roles": [
+        {
+          "id": "r_player_tournament_player",
+          "objectTypeId": "ot_player"
+        },
+        {
+          "id": "r_player_tournament_tournament",
+          "objectTypeId": "ot_tournament"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_player_tournament",
+          "roleOrder": [
+            "r_player_tournament_player",
+            "r_player_tournament_tournament"
+          ],
+          "text": "{0} doet mee aan {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_player_tournament_inv",
+          "roleOrder": [
+            "r_player_tournament_tournament",
+            "r_player_tournament_player"
+          ],
+          "text": "{0} heeft {1} als deelnemer"
+        }
+      ]
+    },
+    {
+      "id": "ft_player_name",
+      "roles": [
+        {
+          "id": "r_player_name_player",
+          "objectTypeId": "ot_player"
+        },
+        {
+          "id": "r_player_name_name",
+          "objectTypeId": "ot_name"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_player_name",
+          "roleOrder": [
+            "r_player_name_player",
+            "r_player_name_name"
+          ],
+          "text": "{0} heeft {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_match_tournament",
+      "roles": [
+        {
+          "id": "r_match_tournament_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_tournament_tournament",
+          "objectTypeId": "ot_tournament"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_tournament",
+          "roleOrder": [
+            "r_match_tournament_match",
+            "r_match_tournament_tournament"
+          ],
+          "text": "{0} hoort bij {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_match_tournament_inv",
+          "roleOrder": [
+            "r_match_tournament_tournament",
+            "r_match_tournament_match"
+          ],
+          "text": "{0} heeft {1}"
+        }
+      ]
+    },
+    {
+      "id": "ft_match_round",
+      "roles": [
+        {
+          "id": "r_match_round_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_round_round",
+          "objectTypeId": "ot_round"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_round",
+          "roleOrder": [
+            "r_match_round_match",
+            "r_match_round_round"
+          ],
+          "text": "{0} wordt gespeeld in {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_match_start",
+      "roles": [
+        {
+          "id": "r_match_start_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_start_start",
+          "objectTypeId": "ot_start"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_start",
+          "roleOrder": [
+            "r_match_start_match",
+            "r_match_start_start"
+          ],
+          "text": "{0} begint op {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_match_first",
+      "roles": [
+        {
+          "id": "r_match_first_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_first_player",
+          "objectTypeId": "ot_player"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_first",
+          "roleOrder": [
+            "r_match_first_match",
+            "r_match_first_player"
+          ],
+          "text": "{0} heeft als eerste speler {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_match_second",
+      "roles": [
+        {
+          "id": "r_match_second_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_second_player",
+          "objectTypeId": "ot_player"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_second",
+          "roleOrder": [
+            "r_match_second_match",
+            "r_match_second_player"
+          ],
+          "text": "{0} heeft als tweede speler {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_match_winner",
+      "roles": [
+        {
+          "id": "r_match_winner_match",
+          "objectTypeId": "ot_match"
+        },
+        {
+          "id": "r_match_winner_player",
+          "objectTypeId": "ot_player"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_match_winner",
+          "roleOrder": [
+            "r_match_winner_match",
+            "r_match_winner_player"
+          ],
+          "text": "{0} is gewonnen door {1}",
+          "isPrimary": true
+        }
+      ]
+    }
+  ],
+  "subtypeRelations": [],
+  "constraints": [
+    {
+      "id": "uc_player_tournament",
+      "kind": "uniqueness",
+      "roles": [
+        "r_player_tournament_player",
+        "r_player_tournament_tournament"
+      ]
+    },
+    {
+      "id": "uc_player_name",
+      "kind": "uniqueness",
+      "roles": [
+        "r_player_name_player"
+      ]
+    },
+    {
+      "id": "mc_player_name",
+      "kind": "mandatory",
+      "roles": [
+        "r_player_name_player"
+      ]
+    },
+    {
+      "id": "uc_match_tournament",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_tournament_match"
+      ]
+    },
+    {
+      "id": "mc_match_tournament",
+      "kind": "mandatory",
+      "roles": [
+        "r_match_tournament_match"
+      ]
+    },
+    {
+      "id": "uc_match_round",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_round_match"
+      ]
+    },
+    {
+      "id": "mc_match_round",
+      "kind": "mandatory",
+      "roles": [
+        "r_match_round_match"
+      ]
+    },
+    {
+      "id": "uc_match_start",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_start_match"
+      ]
+    },
+    {
+      "id": "mc_match_start",
+      "kind": "mandatory",
+      "roles": [
+        "r_match_start_match"
+      ]
+    },
+    {
+      "id": "uc_match_first",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_first_match"
+      ]
+    },
+    {
+      "id": "mc_match_first",
+      "kind": "mandatory",
+      "roles": [
+        "r_match_first_match"
+      ]
+    },
+    {
+      "id": "uc_match_second",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_second_match"
+      ]
+    },
+    {
+      "id": "mc_match_second",
+      "kind": "mandatory",
+      "roles": [
+        "r_match_second_match"
+      ]
+    },
+    {
+      "id": "uc_match_winner",
+      "kind": "uniqueness",
+      "roles": [
+        "r_match_winner_match"
+      ]
+    },
+    {
+      "id": "vc_round",
+      "kind": "value",
+      "objectTypeId": "ot_round",
+      "ranges": [
+        {
+          "value": "EERSTE_RONDE"
+        },
+        {
+          "value": "KWARTFINALE"
+        },
+        {
+          "value": "HALVE_FINALE"
+        },
+        {
+          "value": "FINALE"
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "shapes": {
+      "ot_tournament": {
+        "x": 120,
+        "y": 200
+      },
+      "ot_player": {
+        "x": 420,
+        "y": 200
+      },
+      "ot_match": {
+        "x": 420,
+        "y": 380
+      },
+      "ot_name": {
+        "x": 720,
+        "y": 200
+      },
+      "ot_round": {
+        "x": 120,
+        "y": 380
+      },
+      "ot_start": {
+        "x": 720,
+        "y": 380
+      },
+      "ft_player_tournament": {
+        "x": 270,
+        "y": 200,
+        "orientation": "horizontal"
+      },
+      "ft_player_name": {
+        "x": 570,
+        "y": 200,
+        "orientation": "horizontal"
+      },
+      "ft_match_tournament": {
+        "x": 270,
+        "y": 290,
+        "orientation": "horizontal"
+      },
+      "ft_match_round": {
+        "x": 270,
+        "y": 380,
+        "orientation": "horizontal"
+      },
+      "ft_match_start": {
+        "x": 570,
+        "y": 380,
+        "orientation": "horizontal"
+      },
+      "ft_match_first": {
+        "x": 360,
+        "y": 290,
+        "orientation": "vertical"
+      },
+      "ft_match_second": {
+        "x": 420,
+        "y": 290,
+        "orientation": "vertical"
+      },
+      "ft_match_winner": {
+        "x": 480,
+        "y": 290,
+        "orientation": "vertical"
+      }
+    }
+  }
+}

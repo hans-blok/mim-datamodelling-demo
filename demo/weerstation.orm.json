@@ -1,0 +1,627 @@
+{
+  "$schema": "https://www.factum-orm.com/schema/orm-model-2.schema.json",
+  "version": 2,
+  "name": "weerstation",
+  "objectTypes": [
+    {
+      "id": "ot_station",
+      "name": "Weerstation",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_sensor",
+      "name": "Sensor",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_measurement",
+      "name": "Meting",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "integer"
+    },
+    {
+      "id": "ot_quantity",
+      "name": "Grootheid",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_unit",
+      "name": "Eenheid",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_status",
+      "name": "Stationsstatus",
+      "kind": "value",
+      "dataType": "string"
+    },
+    {
+      "id": "ot_timestamp",
+      "name": "Tijdstip",
+      "kind": "value",
+      "dataType": "datetime"
+    },
+    {
+      "id": "ot_value",
+      "name": "Meetwaarde",
+      "kind": "value",
+      "dataType": "decimal"
+    },
+    {
+      "id": "ot_latitude",
+      "name": "Breedtegraad",
+      "kind": "value",
+      "dataType": "decimal"
+    },
+    {
+      "id": "ot_longitude",
+      "name": "Lengtegraad",
+      "kind": "value",
+      "dataType": "decimal"
+    },
+    {
+      "id": "ot_elevation",
+      "name": "Hoogte",
+      "kind": "value",
+      "dataType": "decimal"
+    }
+  ],
+  "factTypes": [
+    {
+      "id": "ft_sensor_station",
+      "roles": [
+        {
+          "id": "r_sensor_station_sensor",
+          "objectTypeId": "ot_sensor"
+        },
+        {
+          "id": "r_sensor_station_station",
+          "objectTypeId": "ot_station"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_sensor_station",
+          "roleOrder": [
+            "r_sensor_station_sensor",
+            "r_sensor_station_station"
+          ],
+          "text": "{0} hoort bij {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_sensor_station_inv",
+          "roleOrder": [
+            "r_sensor_station_station",
+            "r_sensor_station_sensor"
+          ],
+          "text": "{0} heeft {1}"
+        }
+      ]
+    },
+    {
+      "id": "ft_sensor_quantity",
+      "roles": [
+        {
+          "id": "r_sensor_quantity_sensor",
+          "objectTypeId": "ot_sensor"
+        },
+        {
+          "id": "r_sensor_quantity_quantity",
+          "objectTypeId": "ot_quantity"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_sensor_quantity",
+          "roleOrder": [
+            "r_sensor_quantity_sensor",
+            "r_sensor_quantity_quantity"
+          ],
+          "text": "{0} meet {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_sensor_quantity_inv",
+          "roleOrder": [
+            "r_sensor_quantity_quantity",
+            "r_sensor_quantity_sensor"
+          ],
+          "text": "{0} wordt gemeten door {1}"
+        }
+      ]
+    },
+    {
+      "id": "ft_quantity_unit",
+      "roles": [
+        {
+          "id": "r_quantity_unit_quantity",
+          "objectTypeId": "ot_quantity"
+        },
+        {
+          "id": "r_quantity_unit_unit",
+          "objectTypeId": "ot_unit"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_quantity_unit",
+          "roleOrder": [
+            "r_quantity_unit_quantity",
+            "r_quantity_unit_unit"
+          ],
+          "text": "{0} wordt uitgedrukt in {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_quantity_unit_inv",
+          "roleOrder": [
+            "r_quantity_unit_unit",
+            "r_quantity_unit_quantity"
+          ],
+          "text": "{0} is de eenheid van {1}"
+        }
+      ]
+    },
+    {
+      "id": "ft_measurement_sensor",
+      "roles": [
+        {
+          "id": "r_measurement_sensor_measurement",
+          "objectTypeId": "ot_measurement"
+        },
+        {
+          "id": "r_measurement_sensor_sensor",
+          "objectTypeId": "ot_sensor"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_measurement_sensor",
+          "roleOrder": [
+            "r_measurement_sensor_measurement",
+            "r_measurement_sensor_sensor"
+          ],
+          "text": "{0} is gedaan door {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_measurement_sensor_inv",
+          "roleOrder": [
+            "r_measurement_sensor_sensor",
+            "r_measurement_sensor_measurement"
+          ],
+          "text": "{0} doet {1}"
+        }
+      ]
+    },
+    {
+      "id": "ft_measurement_time",
+      "roles": [
+        {
+          "id": "r_measurement_time_measurement",
+          "objectTypeId": "ot_measurement"
+        },
+        {
+          "id": "r_measurement_time_timestamp",
+          "objectTypeId": "ot_timestamp"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_measurement_time",
+          "roleOrder": [
+            "r_measurement_time_measurement",
+            "r_measurement_time_timestamp"
+          ],
+          "text": "{0} vond plaats op {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_measurement_value",
+      "roles": [
+        {
+          "id": "r_measurement_value_measurement",
+          "objectTypeId": "ot_measurement"
+        },
+        {
+          "id": "r_measurement_value_value",
+          "objectTypeId": "ot_value"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_measurement_value",
+          "roleOrder": [
+            "r_measurement_value_measurement",
+            "r_measurement_value_value"
+          ],
+          "text": "{0} heeft {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_station_status",
+      "roles": [
+        {
+          "id": "r_station_status_station",
+          "objectTypeId": "ot_station"
+        },
+        {
+          "id": "r_station_status_status",
+          "objectTypeId": "ot_status"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_station_status",
+          "roleOrder": [
+            "r_station_status_station",
+            "r_station_status_status"
+          ],
+          "text": "{0} heeft {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_station_lat",
+      "roles": [
+        {
+          "id": "r_station_lat_station",
+          "objectTypeId": "ot_station"
+        },
+        {
+          "id": "r_station_lat_latitude",
+          "objectTypeId": "ot_latitude"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_station_lat",
+          "roleOrder": [
+            "r_station_lat_station",
+            "r_station_lat_latitude"
+          ],
+          "text": "{0} ligt op {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_station_lon",
+      "roles": [
+        {
+          "id": "r_station_lon_station",
+          "objectTypeId": "ot_station"
+        },
+        {
+          "id": "r_station_lon_longitude",
+          "objectTypeId": "ot_longitude"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_station_lon",
+          "roleOrder": [
+            "r_station_lon_station",
+            "r_station_lon_longitude"
+          ],
+          "text": "{0} ligt op {1}",
+          "isPrimary": true
+        }
+      ]
+    },
+    {
+      "id": "ft_station_elev",
+      "roles": [
+        {
+          "id": "r_station_elev_station",
+          "objectTypeId": "ot_station"
+        },
+        {
+          "id": "r_station_elev_elevation",
+          "objectTypeId": "ot_elevation"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_station_elev",
+          "roleOrder": [
+            "r_station_elev_station",
+            "r_station_elev_elevation"
+          ],
+          "text": "{0} ligt op {1}",
+          "isPrimary": true
+        }
+      ]
+    }
+  ],
+  "subtypeRelations": [],
+  "constraints": [
+    {
+      "id": "uc_sensor_station",
+      "kind": "uniqueness",
+      "roles": [
+        "r_sensor_station_sensor"
+      ]
+    },
+    {
+      "id": "mc_sensor_station",
+      "kind": "mandatory",
+      "roles": [
+        "r_sensor_station_sensor"
+      ]
+    },
+    {
+      "id": "uc_sensor_quantity",
+      "kind": "uniqueness",
+      "roles": [
+        "r_sensor_quantity_sensor"
+      ]
+    },
+    {
+      "id": "mc_sensor_quantity",
+      "kind": "mandatory",
+      "roles": [
+        "r_sensor_quantity_sensor"
+      ]
+    },
+    {
+      "id": "uc_quantity_unit",
+      "kind": "uniqueness",
+      "roles": [
+        "r_quantity_unit_quantity"
+      ]
+    },
+    {
+      "id": "mc_quantity_unit",
+      "kind": "mandatory",
+      "roles": [
+        "r_quantity_unit_quantity"
+      ]
+    },
+    {
+      "id": "uc_measurement_sensor",
+      "kind": "uniqueness",
+      "roles": [
+        "r_measurement_sensor_measurement"
+      ]
+    },
+    {
+      "id": "mc_measurement_sensor",
+      "kind": "mandatory",
+      "roles": [
+        "r_measurement_sensor_measurement"
+      ]
+    },
+    {
+      "id": "uc_measurement_time",
+      "kind": "uniqueness",
+      "roles": [
+        "r_measurement_time_measurement"
+      ]
+    },
+    {
+      "id": "mc_measurement_time",
+      "kind": "mandatory",
+      "roles": [
+        "r_measurement_time_measurement"
+      ]
+    },
+    {
+      "id": "uc_measurement_value",
+      "kind": "uniqueness",
+      "roles": [
+        "r_measurement_value_measurement"
+      ]
+    },
+    {
+      "id": "mc_measurement_value",
+      "kind": "mandatory",
+      "roles": [
+        "r_measurement_value_measurement"
+      ]
+    },
+    {
+      "id": "uc_station_status",
+      "kind": "uniqueness",
+      "roles": [
+        "r_station_status_station"
+      ]
+    },
+    {
+      "id": "mc_station_status",
+      "kind": "mandatory",
+      "roles": [
+        "r_station_status_station"
+      ]
+    },
+    {
+      "id": "uc_station_lat",
+      "kind": "uniqueness",
+      "roles": [
+        "r_station_lat_station"
+      ]
+    },
+    {
+      "id": "mc_station_lat",
+      "kind": "mandatory",
+      "roles": [
+        "r_station_lat_station"
+      ]
+    },
+    {
+      "id": "uc_station_lon",
+      "kind": "uniqueness",
+      "roles": [
+        "r_station_lon_station"
+      ]
+    },
+    {
+      "id": "mc_station_lon",
+      "kind": "mandatory",
+      "roles": [
+        "r_station_lon_station"
+      ]
+    },
+    {
+      "id": "uc_station_elev",
+      "kind": "uniqueness",
+      "roles": [
+        "r_station_elev_station"
+      ]
+    },
+    {
+      "id": "vc_status",
+      "kind": "value",
+      "objectTypeId": "ot_status",
+      "ranges": [
+        {
+          "value": "ACTIEF"
+        },
+        {
+          "value": "INACTIEF"
+        },
+        {
+          "value": "ONDERHOUD"
+        }
+      ]
+    },
+    {
+      "id": "vc_quantity",
+      "kind": "value",
+      "objectTypeId": "ot_quantity",
+      "ranges": [
+        {
+          "value": "TEMPERATUUR"
+        },
+        {
+          "value": "LUCHTVOCHTIGHEID"
+        },
+        {
+          "value": "LUCHTDRUK"
+        },
+        {
+          "value": "WINDSNELHEID"
+        },
+        {
+          "value": "WINDRICHTING"
+        },
+        {
+          "value": "NEERSLAG"
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "shapes": {
+      "ot_station": {
+        "x": 120,
+        "y": 200
+      },
+      "ot_sensor": {
+        "x": 420,
+        "y": 200
+      },
+      "ot_measurement": {
+        "x": 720,
+        "y": 200
+      },
+      "ot_quantity": {
+        "x": 420,
+        "y": 380
+      },
+      "ot_unit": {
+        "x": 720,
+        "y": 380
+      },
+      "ot_status": {
+        "x": 120,
+        "y": 60
+      },
+      "ot_timestamp": {
+        "x": 1020,
+        "y": 120
+      },
+      "ot_value": {
+        "x": 1020,
+        "y": 280
+      },
+      "ot_latitude": {
+        "x": 30,
+        "y": 360
+      },
+      "ot_longitude": {
+        "x": 120,
+        "y": 440
+      },
+      "ot_elevation": {
+        "x": 120,
+        "y": 520
+      },
+      "ft_sensor_station": {
+        "x": 270,
+        "y": 200,
+        "orientation": "horizontal"
+      },
+      "ft_sensor_quantity": {
+        "x": 420,
+        "y": 290,
+        "orientation": "vertical"
+      },
+      "ft_quantity_unit": {
+        "x": 570,
+        "y": 380,
+        "orientation": "horizontal"
+      },
+      "ft_measurement_sensor": {
+        "x": 570,
+        "y": 200,
+        "orientation": "horizontal"
+      },
+      "ft_measurement_time": {
+        "x": 870,
+        "y": 160,
+        "orientation": "horizontal"
+      },
+      "ft_measurement_value": {
+        "x": 870,
+        "y": 240,
+        "orientation": "horizontal"
+      },
+      "ft_station_status": {
+        "x": 120,
+        "y": 130,
+        "orientation": "vertical"
+      },
+      "ft_station_lat": {
+        "x": 120,
+        "y": 280,
+        "orientation": "vertical"
+      },
+      "ft_station_lon": {
+        "x": 120,
+        "y": 400,
+        "orientation": "vertical"
+      },
+      "ft_station_elev": {
+        "x": 120,
+        "y": 480,
+        "orientation": "vertical"
+      }
+    }
+  }
+}

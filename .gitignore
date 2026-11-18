@@ -1,0 +1,14 @@
+# Negeer alles behalve /docs, /specificaties en README.md
+.png
+/temp
+
+# Lokaal pushscript
+push.bat
+
+# Word/Excel/PowerPoint tijdelijke lockbestanden
+~$*
+.~lock.*#
+
+# macOS / Windows systeembestanden
+.DS_Store
+Thumbs.db

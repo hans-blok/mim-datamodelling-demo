@@ -1,0 +1,65 @@
+# MkDocs-configuratie voor de datamodellering-demo.
+# Bouwen: pip install -r requirements-docs.txt, daarna mkdocs serve.
+
+site_name: "Datamodellering-demo"
+site_description: "Demo voor datamodellering met ORM, Factum en AI"
+site_author: "Hans Blok"
+site_url: "https://hans-blok.github.io/mim-datamodelling-demo/"
+repo_url: "https://github.com/hans-blok/mim-datamodelling-demo"
+repo_name: "hans-blok/mim-datamodelling-demo"
+
+# Alleen de map docs komt in de site. Modellen en voorbeelden in demo blijven erbuiten.
+docs_dir: "docs"
+site_dir: "site"
+
+theme:
+  name: "material"
+  language: "nl"
+  favicon: "assets/favicon.svg"
+  logo: "assets/favicon.svg"
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Donkere modus
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Lichte modus
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: false
+      toc_depth: 3
+
+nav:
+  - Home: index.md
+  - Aanpak: aanpak.md
+  - Startup: startup.md
+  - Kennisbank:
+      - kennisbank/index.md
+      - "MIM": kennisbank/mim.md
+
+extra:
+  generator: false

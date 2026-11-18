@@ -17,6 +17,9 @@ theme:
   language: "nl"
   favicon: "assets/favicon.svg"
   logo: "assets/favicon.svg"
+  # false = geen Google Fonts. Source Sans 3 wordt zelf gehost vanuit
+  # docs/assets/fonts en ingesteld in docs/stylesheets/extra.css.
+  font: false
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default

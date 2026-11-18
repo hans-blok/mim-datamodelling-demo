@@ -1,5 +1,26 @@
 /* Stijl voor de datamodellering-demo: rustig, leesbaar, met een blauwgroen accent. */
 
+/* Source Sans 3, zelf gehost (SIL Open Font License 1.1). */
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../assets/fonts/source-sans-3-latin-wght-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../assets/fonts/source-sans-3-latin-wght-italic.woff2") format("woff2");
+}
+
+:root {
+  --md-text-font: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
 :root,
 [data-md-color-scheme="default"] {
   --md-primary-fg-color: #1f3a5f;
@@ -16,7 +37,7 @@
 }
 
 .md-typeset {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   line-height: 1.65;
 }
 

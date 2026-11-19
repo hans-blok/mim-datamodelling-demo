@@ -3,7 +3,7 @@ titel: Scripts
 doel: Uitleggen welke hulpscripts er zijn en hoe je ze gebruikt.
 auteur: Hans Blok
 datum: 2026-11-19
-wijziging: Script orm_naar_factum.py en de agent orm-modelleur toegevoegd.
+wijziging: Script orm_indeling.py en de agent orm-indeler toegevoegd.
 ---
 
 # Scripts
@@ -14,6 +14,7 @@ De scripts hier zijn hulpmiddelen bij het modelleren. Ze zijn geen onderwerp van
 |---|---|
 | [bron_naar_chunks.py](#bron_naar_chunkspy) | Bronnen, zoals wetten, opdelen in Markdown per artikel |
 | [orm_naar_factum.py](#orm_naar_factumpy) | Een compact ORM-model in YAML omzetten naar een Factum-model |
+| [orm_indeling.py](#orm_indelingpy) | De indeling van een ORM-diagram meten en verbeteren, met minder kruisende lijnen |
 | `agent_naar_html.py` | Een agentbestand omzetten naar een leesbare HTML-pagina, bijvoorbeeld `python scripts/agent_naar_html.py .claude/agents/orm-modelleur.md docs/agents/orm-modelleur.html` |
 
 Installeren:
@@ -61,6 +62,36 @@ Het script schrijft alleen als alles klopt:
 Daarnaast meldt het met "let op" wat de moeite van bekijken waard is, zoals een verplichte rol zonder voorbeeld of een streepje als leesteken in een definitie.
 
 Posities die je in Factum verschuift, blijven bij opnieuw draaien bewaard. Andere wijzigingen in de `.orm.json` gaan verloren, dus pas die aan in de YAML. Het formaat van de YAML staat in de [agent](../.claude/agents/orm-modelleur.md).
+
+## Diagram overzichtelijker laten maken door AI
+
+De agent [orm-indeler](../.claude/agents/orm-indeler.md) verschuift de vormen in een bestaand Factum-model, zodat er minder lijnen kruisen en minder vormen overlappen. Het model zelf verandert niet. Vraag het in Claude Code zo:
+
+```
+Gebruik de orm-indeler voor demo/bibliotheek/02-conceptueel/lidmaatschap.orm.json.
+```
+
+Een schermafbeelding uit Factum is niet nodig. Alle posities staan in de `.orm.json` en het script rekent de lijnen zelf uit. Een schermafbeelding helpt wel bij de controle achteraf, want het script schat hoe groot Factum de vormen tekent.
+
+## orm_indeling.py
+
+```
+python scripts/orm_indeling.py structuur MODEL.orm.json      wat is met wat verbonden
+python scripts/orm_indeling.py meet      MODEL.orm.json      score van de huidige indeling
+python scripts/orm_indeling.py toepas    MODEL.orm.json -    posities uit YAML (stdin) toepassen
+python scripts/orm_indeling.py schik     MODEL.orm.json      zelf een betere indeling zoeken
+```
+
+Het script past alleen `diagram.shapes` aan, en alleen met `--schrijf`. Zonder die vlag zie je de meting vooraf en achteraf. Het telt:
+
+- kruisende lijnen tussen rollen en objecttypen, en tussen subtypen en supertypen;
+- vormen die overlappen of te dicht op elkaar staan;
+- lijnen die door een vorm lopen die er niet bij hoort;
+- gestippelde regellijnen die een lijn kruisen, en de totale lijnlengte.
+
+`schik` zoekt met een willekeurige zoektocht (simulated annealing) een indeling met een lagere score. Met `--vast id,id` blijven vormen staan. De beste resultaten krijg je door eerst zelf, of met de agent, een opzet met een duidelijke hoofdas te maken en daarna `schik` te laten bijschaven.
+
+Aannames: x en y in Factum zijn de linkerbovenhoek van een vorm, en de afmetingen van vormen zijn geschat. Bekijk het resultaat daarom altijd in Factum.
 
 ## bron_naar_chunks.py
 

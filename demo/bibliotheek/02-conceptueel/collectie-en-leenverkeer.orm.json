@@ -1,0 +1,675 @@
+{
+  "$schema": "https://www.factum-orm.com/schema/orm-model-2.schema.json",
+  "version": 2,
+  "name": "collectie-en-leenverkeer",
+  "lang": "nl",
+  "note": "Collectieplan, interbibliothecair leenverkeer en inkoop van digitale werken. Voorstel van AI, nog niet gecontroleerd door een deskundige.",
+  "objectTypes": [
+    {
+      "id": "ot_werk",
+      "name": "Werk",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "W01",
+        "W02",
+        "W03",
+        "W04"
+      ],
+      "note": "Soortbegrip: Exemplaar\nDefinitie: Exemplaar van een werk als bedoeld in artikel 10 van de Auteurswet.\n\nBron: Wsob artikel 1 lid 1 onder f. De definitie staat letterlijk in de bron.",
+      "meta": {
+        "shortDescription": "Exemplaar van een werk als bedoeld in artikel 10 van de Auteurswet.",
+        "description": "Soortbegrip: Exemplaar\nDefinitie: Exemplaar van een werk als bedoeld in artikel 10 van de Auteurswet.\n\nBron: Wsob artikel 1 lid 1 onder f. De definitie staat letterlijk in de bron."
+      }
+    },
+    {
+      "id": "ot_collectieplan",
+      "name": "Collectieplan",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "C01",
+        "C02",
+        "C03"
+      ],
+      "note": "Soortbegrip: Plan\nDefinitie: Plan dat samenhang bewerkstelligt tussen de fysieke en digitale collecties van de openbare bibliotheekvoorzieningen en een kader biedt voor het samenstellen en beheren van de collectie door een voorziening.\n\nAI-voorstel, gebaseerd op Wsob artikel 10 lid 2.\n\nArtikel 10 lid 2:\nHet collectieplan heeft tot doel samenhang te bewerkstelligen tussen de fysieke en digitale collecties van de openbare bibliotheekvoorzieningen. Het biedt een kader voor het samenstellen en beheren van de collectie door een voorziening.",
+      "meta": {
+        "shortDescription": "Plan dat samenhang bewerkstelligt tussen de fysieke en digitale collecties van de openbare bibliotheekvoorzieningen en een kader biedt voor het samenstellen en beheren van de collectie door een voorziening.",
+        "description": "Soortbegrip: Plan\nDefinitie: Plan dat samenhang bewerkstelligt tussen de fysieke en digitale collecties van de openbare bibliotheekvoorzieningen en een kader biedt voor het samenstellen en beheren van de collectie door een voorziening.\n\nAI-voorstel, gebaseerd op Wsob artikel 10 lid 2.\n\nArtikel 10 lid 2:\nHet collectieplan heeft tot doel samenhang te bewerkstelligen tussen de fysieke en digitale collecties van de openbare bibliotheekvoorzieningen. Het biedt een kader voor het samenstellen en beheren van de collectie door een voorziening."
+      }
+    },
+    {
+      "id": "ot_deelnemer",
+      "name": "Deelnemer",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "D01",
+        "D02",
+        "D03"
+      ],
+      "note": "Soortbegrip: Organisatie\nDefinitie: Organisatie die deelneemt aan het interbibliothecaire leenverkeer van fysieke werken.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 1.\n\nArtikel 15 lid 1:\nAlle lokale bibliotheken en provinciale ondersteuningsinstellingen nemen deel aan het interbibliothecaire leenverkeer.",
+      "meta": {
+        "shortDescription": "Organisatie die deelneemt aan het interbibliothecaire leenverkeer van fysieke werken.",
+        "description": "Soortbegrip: Organisatie\nDefinitie: Organisatie die deelneemt aan het interbibliothecaire leenverkeer van fysieke werken.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 1.\n\nArtikel 15 lid 1:\nAlle lokale bibliotheken en provinciale ondersteuningsinstellingen nemen deel aan het interbibliothecaire leenverkeer."
+      }
+    },
+    {
+      "id": "ot_leenverzoek",
+      "name": "Leenverzoek",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "L01",
+        "L02"
+      ],
+      "note": "Soortbegrip: Verzoek\nDefinitie: Verzoek van een lokale bibliotheek aan een deelnemer om een fysiek werk ter beschikking te stellen voor een gebruiker van die bibliotheek.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 2.\n\nArtikel 15 lid 2:\nDeelname aan het interbibliothecaire leenverkeer houdt in ieder geval in:\na. op verzoek van een lokale bibliotheek ter beschikking stellen van fysieke werken ten behoeve van gebruikers van die bibliotheek;\nb. op verzoek van een gebruiker doen van een verzoek als bedoeld in onderdeel a aan de daarvoor in aanmerking komende bibliotheek; en\nc. distributie van fysieke werken door provinciale ondersteuningsinstellingen.",
+      "meta": {
+        "shortDescription": "Verzoek van een lokale bibliotheek aan een deelnemer om een fysiek werk ter beschikking te stellen voor een gebruiker van die bibliotheek.",
+        "description": "Soortbegrip: Verzoek\nDefinitie: Verzoek van een lokale bibliotheek aan een deelnemer om een fysiek werk ter beschikking te stellen voor een gebruiker van die bibliotheek.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 2.\n\nArtikel 15 lid 2:\nDeelname aan het interbibliothecaire leenverkeer houdt in ieder geval in:\na. op verzoek van een lokale bibliotheek ter beschikking stellen van fysieke werken ten behoeve van gebruikers van die bibliotheek;\nb. op verzoek van een gebruiker doen van een verzoek als bedoeld in onderdeel a aan de daarvoor in aanmerking komende bibliotheek; en\nc. distributie van fysieke werken door provinciale ondersteuningsinstellingen."
+      }
+    },
+    {
+      "id": "ot_voordracht",
+      "name": "Voordracht",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "V01",
+        "V02"
+      ],
+      "note": "Soortbegrip: Voorstel\nDefinitie: Voorstel van vertegenwoordigers van de lokale bibliotheken om werken in te kopen voor de landelijke digitale bibliotheek.\n\nAI-voorstel, gebaseerd op Wsob artikel 18 lid 3.\n\nArtikel 18 lid 3:\nDe inkoop wordt uitsluitend verricht op voordracht van vertegenwoordigers van de lokale bibliotheken, welke is afgestemd op het bedrag, bedoeld in het tweede lid.",
+      "meta": {
+        "shortDescription": "Voorstel van vertegenwoordigers van de lokale bibliotheken om werken in te kopen voor de landelijke digitale bibliotheek.",
+        "description": "Soortbegrip: Voorstel\nDefinitie: Voorstel van vertegenwoordigers van de lokale bibliotheken om werken in te kopen voor de landelijke digitale bibliotheek.\n\nAI-voorstel, gebaseerd op Wsob artikel 18 lid 3.\n\nArtikel 18 lid 3:\nDe inkoop wordt uitsluitend verricht op voordracht van vertegenwoordigers van de lokale bibliotheken, welke is afgestemd op het bedrag, bedoeld in het tweede lid."
+      }
+    },
+    {
+      "id": "ot_vaststellingsdatum",
+      "name": "Vaststellingsdatum",
+      "kind": "value",
+      "dataType": "date",
+      "note": "Soortbegrip: Datum\nDefinitie: Datum waarop de Koninklijke Bibliotheek een collectieplan vaststelt.\n\nAI-voorstel, gebaseerd op Wsob artikel 10 lid 1.\n\nArtikel 10 lid 1:\nDe Koninklijke Bibliotheek stelt elke vier jaar voor de deelnemers aan het netwerk, bedoeld in artikel 7, een gezamenlijk collectieplan vast.",
+      "meta": {
+        "shortDescription": "Datum waarop de Koninklijke Bibliotheek een collectieplan vaststelt.",
+        "description": "Soortbegrip: Datum\nDefinitie: Datum waarop de Koninklijke Bibliotheek een collectieplan vaststelt.\n\nAI-voorstel, gebaseerd op Wsob artikel 10 lid 1.\n\nArtikel 10 lid 1:\nDe Koninklijke Bibliotheek stelt elke vier jaar voor de deelnemers aan het netwerk, bedoeld in artikel 7, een gezamenlijk collectieplan vast."
+      }
+    },
+    {
+      "id": "ot_soort_deelnemer",
+      "name": "Soort deelnemer",
+      "kind": "value",
+      "dataType": "string",
+      "note": "Soortbegrip: Aanduiding\nDefinitie: Aanduiding van de soort organisatie waartoe een deelnemer behoort.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 1.\n\nArtikel 15 lid 1:\nAlle lokale bibliotheken en provinciale ondersteuningsinstellingen nemen deel aan het interbibliothecaire leenverkeer.",
+      "meta": {
+        "shortDescription": "Aanduiding van de soort organisatie waartoe een deelnemer behoort.",
+        "description": "Soortbegrip: Aanduiding\nDefinitie: Aanduiding van de soort organisatie waartoe een deelnemer behoort.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 1.\n\nArtikel 15 lid 1:\nAlle lokale bibliotheken en provinciale ondersteuningsinstellingen nemen deel aan het interbibliothecaire leenverkeer."
+      }
+    },
+    {
+      "id": "ot_inkoopbedrag",
+      "name": "Inkoopbedrag",
+      "kind": "value",
+      "dataType": "decimal",
+      "note": "Soortbegrip: Bedrag\nDefinitie: Bedrag in euro dat de Minister aan de Koninklijke Bibliotheek ter beschikking stelt voor het inkopen van werken.\n\nAI-voorstel, gebaseerd op Wsob artikel 18 lid 2.\n\nArtikel 18 lid 2:\nOnze Minister stelt jaarlijks aan de Koninklijke Bibliotheek een bedrag ter beschikking voor het inkopen van werken.",
+      "meta": {
+        "shortDescription": "Bedrag in euro dat de Minister aan de Koninklijke Bibliotheek ter beschikking stelt voor het inkopen van werken.",
+        "description": "Soortbegrip: Bedrag\nDefinitie: Bedrag in euro dat de Minister aan de Koninklijke Bibliotheek ter beschikking stelt voor het inkopen van werken.\n\nAI-voorstel, gebaseerd op Wsob artikel 18 lid 2.\n\nArtikel 18 lid 2:\nOnze Minister stelt jaarlijks aan de Koninklijke Bibliotheek een bedrag ter beschikking voor het inkopen van werken."
+      }
+    }
+  ],
+  "factTypes": [
+    {
+      "id": "ft_collectieplan_is_vastgesteld_op_vaststellingsdatum",
+      "roles": [
+        {
+          "id": "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_0",
+          "objectTypeId": "ot_collectieplan"
+        },
+        {
+          "id": "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_1",
+          "objectTypeId": "ot_vaststellingsdatum"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_collectieplan_is_vastgesteld_op_vaststellingsdatum",
+          "roleOrder": [
+            "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_0",
+            "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_1"
+          ],
+          "text": "{0} is vastgesteld op {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_collectieplan_is_vastgesteld_op_vaststellingsdatum_inv",
+          "roleOrder": [
+            "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_1",
+            "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_0"
+          ],
+          "text": "{0} is de vaststellingsdatum van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "C01",
+            "2019-01-01"
+          ]
+        },
+        {
+          "values": [
+            "C02",
+            "2023-01-01"
+          ]
+        },
+        {
+          "values": [
+            "C03",
+            "2027-01-01"
+          ]
+        }
+      ],
+      "note": "Het collectieplan dat geldt, is het plan met de meest recente vaststellingsdatum tot en met vandaag.\n\nBron: Wsob artikel 10 lid 1.\n\nArtikel 10 lid 1:\nDe Koninklijke Bibliotheek stelt elke vier jaar voor de deelnemers aan het netwerk, bedoeld in artikel 7, een gezamenlijk collectieplan vast.",
+      "meta": {
+        "description": "Het collectieplan dat geldt, is het plan met de meest recente vaststellingsdatum tot en met vandaag.\n\nBron: Wsob artikel 10 lid 1.\n\nArtikel 10 lid 1:\nDe Koninklijke Bibliotheek stelt elke vier jaar voor de deelnemers aan het netwerk, bedoeld in artikel 7, een gezamenlijk collectieplan vast.",
+        "shortDescription": "Het collectieplan dat geldt, is het plan met de meest recente vaststellingsdatum tot en met vandaag."
+      }
+    },
+    {
+      "id": "ft_deelnemer_is_van_de_soort_soort_deelnemer",
+      "roles": [
+        {
+          "id": "r_deelnemer_is_van_de_soort_soort_deelnemer_0",
+          "objectTypeId": "ot_deelnemer"
+        },
+        {
+          "id": "r_deelnemer_is_van_de_soort_soort_deelnemer_1",
+          "objectTypeId": "ot_soort_deelnemer"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_deelnemer_is_van_de_soort_soort_deelnemer",
+          "roleOrder": [
+            "r_deelnemer_is_van_de_soort_soort_deelnemer_0",
+            "r_deelnemer_is_van_de_soort_soort_deelnemer_1"
+          ],
+          "text": "{0} is van de soort {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_deelnemer_is_van_de_soort_soort_deelnemer_inv",
+          "roleOrder": [
+            "r_deelnemer_is_van_de_soort_soort_deelnemer_1",
+            "r_deelnemer_is_van_de_soort_soort_deelnemer_0"
+          ],
+          "text": "{0} is de soort van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "D01",
+            "lokale bibliotheek"
+          ]
+        },
+        {
+          "values": [
+            "D02",
+            "provinciale ondersteuningsinstelling"
+          ]
+        },
+        {
+          "values": [
+            "D03",
+            "lokale bibliotheek"
+          ]
+        }
+      ],
+      "note": "AI-voorstel, gebaseerd op Wsob artikel 15 lid 1.\n\nArtikel 15 lid 1:\nAlle lokale bibliotheken en provinciale ondersteuningsinstellingen nemen deel aan het interbibliothecaire leenverkeer.",
+      "meta": {
+        "description": "AI-voorstel, gebaseerd op Wsob artikel 15 lid 1.\n\nArtikel 15 lid 1:\nAlle lokale bibliotheken en provinciale ondersteuningsinstellingen nemen deel aan het interbibliothecaire leenverkeer."
+      }
+    },
+    {
+      "id": "ft_leenverzoek_is_gedaan_door_deelnemer",
+      "roles": [
+        {
+          "id": "r_leenverzoek_is_gedaan_door_deelnemer_0",
+          "objectTypeId": "ot_leenverzoek"
+        },
+        {
+          "id": "r_leenverzoek_is_gedaan_door_deelnemer_1",
+          "objectTypeId": "ot_deelnemer"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_leenverzoek_is_gedaan_door_deelnemer",
+          "roleOrder": [
+            "r_leenverzoek_is_gedaan_door_deelnemer_0",
+            "r_leenverzoek_is_gedaan_door_deelnemer_1"
+          ],
+          "text": "{0} is gedaan door {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_leenverzoek_is_gedaan_door_deelnemer_inv",
+          "roleOrder": [
+            "r_leenverzoek_is_gedaan_door_deelnemer_1",
+            "r_leenverzoek_is_gedaan_door_deelnemer_0"
+          ],
+          "text": "{0} doet {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "L01",
+            "D01"
+          ]
+        },
+        {
+          "values": [
+            "L02",
+            "D01"
+          ]
+        }
+      ],
+      "note": "AI-voorstel, gebaseerd op Wsob artikel 15 lid 2 onder a.",
+      "meta": {
+        "description": "AI-voorstel, gebaseerd op Wsob artikel 15 lid 2 onder a."
+      }
+    },
+    {
+      "id": "ft_leenverzoek_is_gericht_aan_deelnemer",
+      "roles": [
+        {
+          "id": "r_leenverzoek_is_gericht_aan_deelnemer_0",
+          "objectTypeId": "ot_leenverzoek"
+        },
+        {
+          "id": "r_leenverzoek_is_gericht_aan_deelnemer_1",
+          "objectTypeId": "ot_deelnemer"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_leenverzoek_is_gericht_aan_deelnemer",
+          "roleOrder": [
+            "r_leenverzoek_is_gericht_aan_deelnemer_0",
+            "r_leenverzoek_is_gericht_aan_deelnemer_1"
+          ],
+          "text": "{0} is gericht aan {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_leenverzoek_is_gericht_aan_deelnemer_inv",
+          "roleOrder": [
+            "r_leenverzoek_is_gericht_aan_deelnemer_1",
+            "r_leenverzoek_is_gericht_aan_deelnemer_0"
+          ],
+          "text": "{0} ontvangt {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "L01",
+            "D02"
+          ]
+        },
+        {
+          "values": [
+            "L02",
+            "D03"
+          ]
+        }
+      ],
+      "note": "AI-voorstel, gebaseerd op Wsob artikel 15 lid 2 onder b.",
+      "meta": {
+        "description": "AI-voorstel, gebaseerd op Wsob artikel 15 lid 2 onder b."
+      }
+    },
+    {
+      "id": "ft_leenverzoek_betreft_werk",
+      "roles": [
+        {
+          "id": "r_leenverzoek_betreft_werk_0",
+          "objectTypeId": "ot_leenverzoek"
+        },
+        {
+          "id": "r_leenverzoek_betreft_werk_1",
+          "objectTypeId": "ot_werk"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_leenverzoek_betreft_werk",
+          "roleOrder": [
+            "r_leenverzoek_betreft_werk_0",
+            "r_leenverzoek_betreft_werk_1"
+          ],
+          "text": "{0} betreft {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_leenverzoek_betreft_werk_inv",
+          "roleOrder": [
+            "r_leenverzoek_betreft_werk_1",
+            "r_leenverzoek_betreft_werk_0"
+          ],
+          "text": "{0} is het onderwerp van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "L01",
+            "W01"
+          ]
+        },
+        {
+          "values": [
+            "L02",
+            "W01"
+          ]
+        }
+      ],
+      "note": "Hetzelfde werk kan in meer dan één verzoek voorkomen.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 2 onder a.",
+      "meta": {
+        "description": "Hetzelfde werk kan in meer dan één verzoek voorkomen.\n\nAI-voorstel, gebaseerd op Wsob artikel 15 lid 2 onder a.",
+        "shortDescription": "Hetzelfde werk kan in meer dan één verzoek voorkomen."
+      }
+    },
+    {
+      "id": "ft_werk_is_ingekocht_op_voordracht",
+      "roles": [
+        {
+          "id": "r_werk_is_ingekocht_op_voordracht_0",
+          "objectTypeId": "ot_werk"
+        },
+        {
+          "id": "r_werk_is_ingekocht_op_voordracht_1",
+          "objectTypeId": "ot_voordracht"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_werk_is_ingekocht_op_voordracht",
+          "roleOrder": [
+            "r_werk_is_ingekocht_op_voordracht_0",
+            "r_werk_is_ingekocht_op_voordracht_1"
+          ],
+          "text": "{0} is ingekocht op {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_werk_is_ingekocht_op_voordracht_inv",
+          "roleOrder": [
+            "r_werk_is_ingekocht_op_voordracht_1",
+            "r_werk_is_ingekocht_op_voordracht_0"
+          ],
+          "text": "{0} leidt tot de inkoop van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "W03",
+            "V01"
+          ]
+        },
+        {
+          "values": [
+            "W04",
+            "V01"
+          ]
+        }
+      ],
+      "note": "Een voordracht kan meer dan één ingekocht werk opleveren.\n\nBron: Wsob artikel 18 lid 3.\n\nArtikel 18 lid 3:\nDe inkoop wordt uitsluitend verricht op voordracht van vertegenwoordigers van de lokale bibliotheken, welke is afgestemd op het bedrag, bedoeld in het tweede lid.",
+      "meta": {
+        "description": "Een voordracht kan meer dan één ingekocht werk opleveren.\n\nBron: Wsob artikel 18 lid 3.\n\nArtikel 18 lid 3:\nDe inkoop wordt uitsluitend verricht op voordracht van vertegenwoordigers van de lokale bibliotheken, welke is afgestemd op het bedrag, bedoeld in het tweede lid.",
+        "shortDescription": "Een voordracht kan meer dan één ingekocht werk opleveren."
+      }
+    },
+    {
+      "id": "ft_voordracht_is_afgestemd_op_inkoopbedrag",
+      "roles": [
+        {
+          "id": "r_voordracht_is_afgestemd_op_inkoopbedrag_0",
+          "objectTypeId": "ot_voordracht"
+        },
+        {
+          "id": "r_voordracht_is_afgestemd_op_inkoopbedrag_1",
+          "objectTypeId": "ot_inkoopbedrag"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_voordracht_is_afgestemd_op_inkoopbedrag",
+          "roleOrder": [
+            "r_voordracht_is_afgestemd_op_inkoopbedrag_0",
+            "r_voordracht_is_afgestemd_op_inkoopbedrag_1"
+          ],
+          "text": "{0} is afgestemd op {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_voordracht_is_afgestemd_op_inkoopbedrag_inv",
+          "roleOrder": [
+            "r_voordracht_is_afgestemd_op_inkoopbedrag_1",
+            "r_voordracht_is_afgestemd_op_inkoopbedrag_0"
+          ],
+          "text": "{0} is de grens van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "V01",
+            "250000.00"
+          ]
+        },
+        {
+          "values": [
+            "V02",
+            "250000.00"
+          ]
+        }
+      ],
+      "note": "Twee voordrachten kunnen op hetzelfde bedrag zijn afgestemd.\n\nBron: Wsob artikel 18 lid 3.\n\nArtikel 18 lid 3:\nDe inkoop wordt uitsluitend verricht op voordracht van vertegenwoordigers van de lokale bibliotheken, welke is afgestemd op het bedrag, bedoeld in het tweede lid.",
+      "meta": {
+        "description": "Twee voordrachten kunnen op hetzelfde bedrag zijn afgestemd.\n\nBron: Wsob artikel 18 lid 3.\n\nArtikel 18 lid 3:\nDe inkoop wordt uitsluitend verricht op voordracht van vertegenwoordigers van de lokale bibliotheken, welke is afgestemd op het bedrag, bedoeld in het tweede lid.",
+        "shortDescription": "Twee voordrachten kunnen op hetzelfde bedrag zijn afgestemd."
+      }
+    }
+  ],
+  "subtypeRelations": [],
+  "constraints": [
+    {
+      "id": "vc_soort_deelnemer",
+      "kind": "value",
+      "objectTypeId": "ot_soort_deelnemer",
+      "ranges": [
+        {
+          "value": "lokale bibliotheek"
+        },
+        {
+          "value": "provinciale ondersteuningsinstelling"
+        }
+      ]
+    },
+    {
+      "id": "uc_collectieplan_is_vastgesteld_op_vaststellingsdatum_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_0"
+      ]
+    },
+    {
+      "id": "mc_collectieplan_is_vastgesteld_op_vaststellingsdatum_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_collectieplan_is_vastgesteld_op_vaststellingsdatum_0"
+      ]
+    },
+    {
+      "id": "uc_deelnemer_is_van_de_soort_soort_deelnemer_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_deelnemer_is_van_de_soort_soort_deelnemer_0"
+      ]
+    },
+    {
+      "id": "mc_deelnemer_is_van_de_soort_soort_deelnemer_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_deelnemer_is_van_de_soort_soort_deelnemer_0"
+      ]
+    },
+    {
+      "id": "uc_leenverzoek_is_gedaan_door_deelnemer_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_leenverzoek_is_gedaan_door_deelnemer_0"
+      ]
+    },
+    {
+      "id": "mc_leenverzoek_is_gedaan_door_deelnemer_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_leenverzoek_is_gedaan_door_deelnemer_0"
+      ]
+    },
+    {
+      "id": "uc_leenverzoek_is_gericht_aan_deelnemer_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_leenverzoek_is_gericht_aan_deelnemer_0"
+      ]
+    },
+    {
+      "id": "mc_leenverzoek_is_gericht_aan_deelnemer_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_leenverzoek_is_gericht_aan_deelnemer_0"
+      ]
+    },
+    {
+      "id": "uc_leenverzoek_betreft_werk_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_leenverzoek_betreft_werk_0"
+      ]
+    },
+    {
+      "id": "mc_leenverzoek_betreft_werk_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_leenverzoek_betreft_werk_0"
+      ]
+    },
+    {
+      "id": "uc_werk_is_ingekocht_op_voordracht_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_werk_is_ingekocht_op_voordracht_0"
+      ]
+    },
+    {
+      "id": "uc_voordracht_is_afgestemd_op_inkoopbedrag_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_voordracht_is_afgestemd_op_inkoopbedrag_0"
+      ]
+    },
+    {
+      "id": "mc_voordracht_is_afgestemd_op_inkoopbedrag_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_voordracht_is_afgestemd_op_inkoopbedrag_0"
+      ]
+    }
+  ],
+  "meta": {
+    "description": "Het model legt vast welk collectieplan geldt, wie deelneemt aan het interbibliothecaire leenverkeer, welk verzoek om een fysiek werk is gedaan en welke werken zijn ingekocht op welke voordracht. Taken en bevoegdheden die geen gegevens opleveren, zoals het vaststellen van het collectieplan in overeenstemming met vertegenwoordigers, zijn weggelaten. Lokale bibliotheek en provinciale ondersteuningsinstelling zijn als waarden van Soort deelnemer vastgelegd, omdat het script nog geen subtypen kent."
+  },
+  "diagram": {
+    "shapes": {
+      "ot_werk": {
+        "x": 120,
+        "y": 120
+      },
+      "ot_collectieplan": {
+        "x": 440,
+        "y": 120
+      },
+      "ot_deelnemer": {
+        "x": 760,
+        "y": 120
+      },
+      "ot_leenverzoek": {
+        "x": 120,
+        "y": 420
+      },
+      "ot_voordracht": {
+        "x": 440,
+        "y": 420
+      },
+      "ot_vaststellingsdatum": {
+        "x": 1100,
+        "y": 40
+      },
+      "ot_soort_deelnemer": {
+        "x": 1100,
+        "y": 150
+      },
+      "ot_inkoopbedrag": {
+        "x": 1100,
+        "y": 260
+      },
+      "ft_collectieplan_is_vastgesteld_op_vaststellingsdatum": {
+        "x": 770,
+        "y": 80,
+        "orientation": "horizontal"
+      },
+      "ft_deelnemer_is_van_de_soort_soort_deelnemer": {
+        "x": 930,
+        "y": 135,
+        "orientation": "horizontal"
+      },
+      "ft_leenverzoek_is_gedaan_door_deelnemer": {
+        "x": 440,
+        "y": 270,
+        "orientation": "horizontal"
+      },
+      "ft_leenverzoek_is_gericht_aan_deelnemer": {
+        "x": 440,
+        "y": 270,
+        "orientation": "horizontal"
+      },
+      "ft_leenverzoek_betreft_werk": {
+        "x": 120,
+        "y": 270,
+        "orientation": "horizontal"
+      },
+      "ft_werk_is_ingekocht_op_voordracht": {
+        "x": 280,
+        "y": 270,
+        "orientation": "horizontal"
+      },
+      "ft_voordracht_is_afgestemd_op_inkoopbedrag": {
+        "x": 770,
+        "y": 340,
+        "orientation": "horizontal"
+      }
+    }
+  }
+}

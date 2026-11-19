@@ -1,0 +1,153 @@
+naam: collectie-en-leenverkeer
+titel: Collectieplan, interbibliothecair leenverkeer en inkoop van digitale werken
+bron: wsob
+status: Voorstel van AI, nog niet gecontroleerd door een deskundige.
+toelichting: >-
+  Het model legt vast welk collectieplan geldt, wie deelneemt aan het interbibliothecaire leenverkeer,
+  welk verzoek om een fysiek werk is gedaan en welke werken zijn ingekocht op welke voordracht.
+  Taken en bevoegdheden die geen gegevens opleveren, zoals het vaststellen van het collectieplan
+  in overeenstemming met vertegenwoordigers, zijn weggelaten. Lokale bibliotheek en provinciale
+  ondersteuningsinstelling zijn als waarden van Soort deelnemer vastgelegd, omdat het script nog geen subtypen kent.
+aannames:
+  - Subtypen zijn niet gemodelleerd (R28). Lokale bibliotheek en provinciale ondersteuningsinstelling zijn twee waarden van Soort deelnemer bij één entiteittype Deelnemer. Een deskundige moet beoordelen of een apart entiteittype per soort nodig is.
+  - De Koninklijke Bibliotheek is geen Deelnemer, omdat artikel 15 lid 1 alleen lokale bibliotheken en provinciale ondersteuningsinstellingen als deelnemers aan het leenverkeer noemt. Artikel 2 en artikel 7 zijn niet gelezen. Is de Koninklijke Bibliotheek ook deelnemer aan het netwerk, dan kan Soort deelnemer een waarde erbij krijgen.
+  - Het collectieplan geldt vanaf de vaststellingsdatum tot het volgende collectieplan is vastgesteld. Artikel 10 noemt alleen dat het elke vier jaar wordt vastgesteld, niet hoe lang een plan geldt.
+  - Een collectieplan geldt voor alle deelnemers aan het netwerk, daarom is het niet aan een Deelnemer gekoppeld.
+  - Een Leenverzoek betreft precies één Werk. Artikel 15 zegt niets over het aantal werken per verzoek.
+  - De gebruiker voor wie het verzoek is gedaan (artikel 15 lid 2 onder a en b) is niet vastgelegd. Persoon en Lidmaatschap uit het model lidmaatschap blijven buiten dit model.
+  - Of een Werk fysiek of digitaal is, is geen gegeven in dit model. Het staat bij de regels, omdat het alleen bepaalt waar het werk in voorkomt.
+  - Een Werk is hoogstens op één Voordracht ingekocht. De bron zegt niet of een werk opnieuw kan worden ingekocht.
+  - De Voordracht legt alleen het Inkoopbedrag vast waarop hij is afgestemd. Het jaar van het bedrag en de vertegenwoordigers die voordragen zijn niet gemodelleerd.
+objecttypen:
+  Werk:
+    soort: entiteit
+    ref: nr
+    type: string
+    soortbegrip: Exemplaar
+    definitie: Exemplaar van een werk als bedoeld in artikel 10 van de Auteurswet.
+    bron: artikel 1 lid 1 onder f
+    voorbeelden: [W01, W02, W03, W04]
+  Collectieplan:
+    soort: entiteit
+    ref: nr
+    type: string
+    soortbegrip: Plan
+    definitie: Plan dat samenhang bewerkstelligt tussen de fysieke en digitale collecties van de openbare bibliotheekvoorzieningen en een kader biedt voor het samenstellen en beheren van de collectie door een voorziening.
+    gebaseerd_op: artikel 10 lid 2
+    voorbeelden: [C01, C02, C03]
+  Deelnemer:
+    soort: entiteit
+    ref: nr
+    type: string
+    soortbegrip: Organisatie
+    definitie: Organisatie die deelneemt aan het interbibliothecaire leenverkeer van fysieke werken.
+    gebaseerd_op: artikel 15 lid 1
+    voorbeelden: [D01, D02, D03]
+  Leenverzoek:
+    soort: entiteit
+    ref: nr
+    type: string
+    soortbegrip: Verzoek
+    definitie: Verzoek van een lokale bibliotheek aan een deelnemer om een fysiek werk ter beschikking te stellen voor een gebruiker van die bibliotheek.
+    gebaseerd_op: artikel 15 lid 2
+    voorbeelden: [L01, L02]
+  Voordracht:
+    soort: entiteit
+    ref: nr
+    type: string
+    soortbegrip: Voorstel
+    definitie: Voorstel van vertegenwoordigers van de lokale bibliotheken om werken in te kopen voor de landelijke digitale bibliotheek.
+    gebaseerd_op: artikel 18 lid 3
+    voorbeelden: [V01, V02]
+  Vaststellingsdatum:
+    soort: waarde
+    type: date
+    soortbegrip: Datum
+    definitie: Datum waarop de Koninklijke Bibliotheek een collectieplan vaststelt.
+    gebaseerd_op: artikel 10 lid 1
+  Soort deelnemer:
+    soort: waarde
+    type: string
+    soortbegrip: Aanduiding
+    definitie: Aanduiding van de soort organisatie waartoe een deelnemer behoort.
+    gebaseerd_op: artikel 15 lid 1
+    waarden: [lokale bibliotheek, provinciale ondersteuningsinstelling]
+  Inkoopbedrag:
+    soort: waarde
+    type: decimal
+    soortbegrip: Bedrag
+    definitie: Bedrag in euro dat de Minister aan de Koninklijke Bibliotheek ter beschikking stelt voor het inkopen van werken.
+    gebaseerd_op: artikel 18 lid 2
+feittypen:
+  - lezing: "{Collectieplan} is vastgesteld op {Vaststellingsdatum}"
+    omgekeerd: "{Vaststellingsdatum} is de vaststellingsdatum van {Collectieplan}"
+    uniek: [[Collectieplan]]
+    verplicht: [Collectieplan]
+    bron: artikel 10 lid 1
+    toelichting: Het collectieplan dat geldt, is het plan met de meest recente vaststellingsdatum tot en met vandaag.
+    voorbeelden:
+      - [C01, "2019-01-01"]
+      - [C02, "2023-01-01"]
+      - [C03, "2027-01-01"]
+  - lezing: "{Deelnemer} is van de soort {Soort deelnemer}"
+    omgekeerd: "{Soort deelnemer} is de soort van {Deelnemer}"
+    uniek: [[Deelnemer]]
+    verplicht: [Deelnemer]
+    gebaseerd_op: artikel 15 lid 1
+    voorbeelden:
+      - [D01, lokale bibliotheek]
+      - [D02, provinciale ondersteuningsinstelling]
+      - [D03, lokale bibliotheek]
+  - lezing: "{Leenverzoek} is gedaan door {Deelnemer}"
+    omgekeerd: "{Deelnemer} doet {Leenverzoek}"
+    uniek: [[Leenverzoek]]
+    verplicht: [Leenverzoek]
+    gebaseerd_op: artikel 15 lid 2 onder a
+    voorbeelden:
+      - [L01, D01]
+      - [L02, D01]
+  - lezing: "{Leenverzoek} is gericht aan {Deelnemer}"
+    omgekeerd: "{Deelnemer} ontvangt {Leenverzoek}"
+    uniek: [[Leenverzoek]]
+    verplicht: [Leenverzoek]
+    gebaseerd_op: artikel 15 lid 2 onder b
+    voorbeelden:
+      - [L01, D02]
+      - [L02, D03]
+  - lezing: "{Leenverzoek} betreft {Werk}"
+    omgekeerd: "{Werk} is het onderwerp van {Leenverzoek}"
+    uniek: [[Leenverzoek]]
+    verplicht: [Leenverzoek]
+    gebaseerd_op: artikel 15 lid 2 onder a
+    toelichting: Hetzelfde werk kan in meer dan één verzoek voorkomen.
+    voorbeelden:
+      - [L01, W01]
+      - [L02, W01]
+  - lezing: "{Werk} is ingekocht op {Voordracht}"
+    omgekeerd: "{Voordracht} leidt tot de inkoop van {Werk}"
+    uniek: [[Werk]]
+    bron: artikel 18 lid 3
+    toelichting: Een voordracht kan meer dan één ingekocht werk opleveren.
+    voorbeelden:
+      - [W03, V01]
+      - [W04, V01]
+  - lezing: "{Voordracht} is afgestemd op {Inkoopbedrag}"
+    omgekeerd: "{Inkoopbedrag} is de grens van {Voordracht}"
+    uniek: [[Voordracht]]
+    verplicht: [Voordracht]
+    bron: artikel 18 lid 3
+    toelichting: Twee voordrachten kunnen op hetzelfde bedrag zijn afgestemd.
+    voorbeelden:
+      - [V01, "250000.00"]
+      - [V02, "250000.00"]
+regels:
+  - regel: Het collectieplan wordt elke vier jaar vastgesteld, dus tussen twee opeenvolgende vaststellingsdatums zitten vier jaar.
+    bron: artikel 10 lid 1
+  - regel: Een Leenverzoek is gedaan door een Deelnemer van de soort lokale bibliotheek.
+    bron: artikel 15 lid 2 onder a
+  - regel: Een Leenverzoek betreft een fysiek Werk.
+    bron: artikel 15 lid 2 onder a
+  - regel: Een Werk dat is ingekocht op een Voordracht is een digitaal werk voor de landelijke digitale bibliotheek.
+    bron: artikel 18 lid 1
+  - regel: De inkoop van werken wordt alleen verricht op een Voordracht, en die Voordracht is afgestemd op het Inkoopbedrag.
+    bron: artikel 18 lid 3

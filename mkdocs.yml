@@ -61,6 +61,13 @@ nav:
   - Aanpak: aanpak.md
   - Startup: startup.md
   - Demo: demo/index.md
+  - Prompts:
+      - prompts/index.md
+      - "Stelsel en netwerk": prompts/stelsel-en-netwerk.md
+      - "Functies en publieke waarden": prompts/functies-en-publieke-waarden.md
+      - "Collectie en leenverkeer": prompts/collectie-en-leenverkeer.md
+      - "Koninklijke Bibliotheek": prompts/koninklijke-bibliotheek.md
+      - "Bekostiging en subsidie": prompts/bekostiging-en-subsidie.md
   - Kennisbank:
       - kennisbank/index.md
       - "MIM": kennisbank/mim.md

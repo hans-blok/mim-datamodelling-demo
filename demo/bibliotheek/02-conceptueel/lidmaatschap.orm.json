@@ -4,6 +4,9 @@
   "name": "lidmaatschap",
   "lang": "nl",
   "note": "Lidmaatschap van de openbare bibliotheek. Voorstel van AI, nog niet gecontroleerd door een deskundige.",
+  "meta": {
+    "description": "Het model volgt artikel 12 en 13. Een lidmaatschap is een eigen begrip, omdat het van een persoon is en een of beide voorzieningen kan omvatten. Het soort voorziening (fysiek of digitaal) is een waarde, omdat artikel 12 lid 3 die twee soorten noemt. De geboortedatum zit in het model, omdat de contributievrijstelling van de leeftijd afhangt."
+  },
   "objectTypes": [
     {
       "id": "ot_persoon",
@@ -556,9 +559,6 @@
       ]
     }
   ],
-  "meta": {
-    "description": "Het model volgt artikel 12 en 13. Een lidmaatschap is een eigen begrip, omdat het van een persoon is en een of beide voorzieningen kan omvatten. Het soort voorziening (fysiek of digitaal) is een waarde, omdat artikel 12 lid 3 die twee soorten noemt. De geboortedatum zit in het model, omdat de contributievrijstelling van de leeftijd afhangt."
-  },
   "diagram": {
     "shapes": {
       "ot_persoon": {
@@ -566,57 +566,57 @@
         "y": 120
       },
       "ot_lidmaatschap": {
-        "x": 440,
-        "y": -20
+        "x": 380,
+        "y": -150
       },
       "ot_voorziening": {
         "x": 740,
         "y": -50
       },
       "ot_soort_voorziening": {
-        "x": 1100,
-        "y": 40
+        "x": 1090,
+        "y": -40
       },
       "ot_register": {
-        "x": 1100,
-        "y": 150
+        "x": 1010,
+        "y": 200
       },
       "ot_geboortedatum": {
-        "x": 1100,
-        "y": 260
+        "x": 750,
+        "y": 300
       },
       "ot_contributiebedrag": {
-        "x": 1100,
-        "y": 370
+        "x": 840,
+        "y": -160
       },
       "ft_persoon_is_als_ingezetene_ingeschreven_in_register": {
-        "x": 610,
-        "y": 135,
+        "x": 560,
+        "y": 70,
         "orientation": "horizontal"
       },
       "ft_persoon_heeft_geboortedatum": {
-        "x": 610,
-        "y": 190,
+        "x": 560,
+        "y": 220,
         "orientation": "horizontal"
       },
       "ft_lidmaatschap_is_van_persoon": {
-        "x": 280,
-        "y": 120,
+        "x": 220,
+        "y": -20,
         "orientation": "horizontal"
       },
       "ft_lidmaatschap_omvat_voorziening": {
-        "x": 600,
-        "y": 120,
+        "x": 570,
+        "y": -30,
         "orientation": "horizontal"
       },
       "ft_voorziening_is_van_soort_voorziening": {
-        "x": 930,
-        "y": 80,
+        "x": 940,
+        "y": -40,
         "orientation": "horizontal"
       },
       "ft_lidmaatschap_heeft_contributiebedrag": {
-        "x": 770,
-        "y": 245,
+        "x": 640,
+        "y": -170,
         "orientation": "horizontal"
       }
     }

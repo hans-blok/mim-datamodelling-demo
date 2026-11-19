@@ -4,6 +4,9 @@
   "name": "collectie-en-leenverkeer",
   "lang": "nl",
   "note": "Collectieplan, interbibliothecair leenverkeer en inkoop van digitale werken. Voorstel van AI, nog niet gecontroleerd door een deskundige.",
+  "meta": {
+    "description": "Het model legt vast welk collectieplan geldt, wie deelneemt aan het interbibliothecaire leenverkeer, welk verzoek om een fysiek werk is gedaan en welke werken zijn ingekocht op welke voordracht. Taken en bevoegdheden die geen gegevens opleveren, zoals het vaststellen van het collectieplan in overeenstemming met vertegenwoordigers, zijn weggelaten. Lokale bibliotheek en provinciale ondersteuningsinstelling zijn als waarden van Soort deelnemer vastgelegd, omdat het script nog geen subtypen kent."
+  },
   "objectTypes": [
     {
       "id": "ot_werk",
@@ -598,9 +601,6 @@
       ]
     }
   ],
-  "meta": {
-    "description": "Het model legt vast welk collectieplan geldt, wie deelneemt aan het interbibliothecaire leenverkeer, welk verzoek om een fysiek werk is gedaan en welke werken zijn ingekocht op welke voordracht. Taken en bevoegdheden die geen gegevens opleveren, zoals het vaststellen van het collectieplan in overeenstemming met vertegenwoordigers, zijn weggelaten. Lokale bibliotheek en provinciale ondersteuningsinstelling zijn als waarden van Soort deelnemer vastgelegd, omdat het script nog geen subtypen kent."
-  },
   "diagram": {
     "shapes": {
       "ot_werk": {
@@ -612,16 +612,16 @@
         "y": 120
       },
       "ot_deelnemer": {
-        "x": 760,
-        "y": 120
+        "x": 730,
+        "y": 310
       },
       "ot_leenverzoek": {
         "x": 120,
         "y": 420
       },
       "ot_voordracht": {
-        "x": 440,
-        "y": 420
+        "x": 450,
+        "y": -70
       },
       "ot_vaststellingsdatum": {
         "x": 1100,
@@ -629,11 +629,11 @@
       },
       "ot_soort_deelnemer": {
         "x": 1100,
-        "y": 150
+        "y": 140
       },
       "ot_inkoopbedrag": {
-        "x": 1100,
-        "y": 260
+        "x": 1050,
+        "y": -70
       },
       "ft_collectieplan_is_vastgesteld_op_vaststellingsdatum": {
         "x": 770,
@@ -661,13 +661,13 @@
         "orientation": "horizontal"
       },
       "ft_werk_is_ingekocht_op_voordracht": {
-        "x": 280,
-        "y": 270,
+        "x": 300,
+        "y": 90,
         "orientation": "horizontal"
       },
       "ft_voordracht_is_afgestemd_op_inkoopbedrag": {
-        "x": 770,
-        "y": 340,
+        "x": 740,
+        "y": -50,
         "orientation": "horizontal"
       }
     }

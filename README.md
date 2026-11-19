@@ -2,8 +2,8 @@
 titel: Datamodellering-demo
 doel: Uitleg over het doel, de werkwijze en de status van de demo voor datamodellering met ORM, Factum en AI.
 auteur: Hans Blok
-datum: 2026-11-18
-wijziging: Link naar de GitHub Pages-site toegevoegd.
+datum: 2026-11-19
+wijziging: Mappen bronnen en scripts toegevoegd aan de inhoud.
 ---
 
 # Datamodellering-demo
@@ -42,6 +42,14 @@ De voorbeelden staan in [demo](demo). Elk voorbeeld heeft een eigen map, ingedee
 De [homepage](docs/index.md) is de ingang tot de demo. De [kennisbank](docs/kennisbank/index.md) bevat achtergrond, zoals een korte uitleg van [MIM](docs/kennisbank/mim.md) met de bronnen.
 
 Er is nog geen echt voorbeeld uitgewerkt. [demo/voorbeeld-01](demo/voorbeeld-01) is een leeg sjabloon.
+
+Elk voorbeeld kan een map `bronnen` hebben met de bronnen die het gebruikt, zoals wetteksten. Die zijn opgedeeld in kleine Markdown-bestanden per artikel, zodat AI ze gericht kan lezen en citeren. De README in die map geeft een overzicht met links naar de bronnen zelf.
+
+| Voorbeeld | Bronnen |
+|---|---|
+| [bibliotheek](demo/bibliotheek/README.md) | [overzicht](demo/bibliotheek/bronnen/README.md): Wet stelsel openbare bibliotheekvoorzieningen, geldende tekst van wetten.overheid.nl |
+
+De hulpscripts die de bronnen omzetten, staan in [scripts](scripts/README.md).
 
 ## Werkwijze
 

@@ -1,0 +1,24 @@
+---
+titel: Wsob, Artikel 6. Netwerkverantwoordelijkheid
+doel: Letterlijke wettekst als bron voor begrippen en regels in het ORM-model van het bibliotheekvoorbeeld.
+auteur: Hans Blok
+datum: '2026-11-19'
+wijziging: Automatisch gemaakt uit het origineel met scripts/bron_naar_chunks.py.
+bron_id: wsob
+bron_titel: Wet stelsel openbare bibliotheekvoorzieningen
+hoofdstuk: 1. Algemene bepalingen
+artikel: '6'
+bron_url: https://wetten.overheid.nl/BWBR0035878/2022-07-01/0/Hoofdstuk1/Artikel6
+status: goed
+in_werking: '2015-01-01'
+gegenereerd: true
+---
+
+# Artikel 6. Netwerkverantwoordelijkheid
+
+1. Onze Minister, de provinciebesturen, de gemeentebesturen en de besturen van de openbare lichamen Bonaire, Sint Eustatius en Saba zijn gezamenlijk verantwoordelijk voor een netwerk van openbare bibliotheekvoorzieningen.
+2. De partijen, genoemd in het eerste lid, geven zich bij de uitoefening van de verantwoordelijkheid, bedoeld in het eerste lid, rekenschap van de gemiddelde afstand tussen de lokale bibliotheekvoorziening en de inwoners van de financierende gemeente of gemeenten.
+3. Zij bevorderen dat een door hen gesubsidieerde of in stand gehouden openbare bibliotheekvoorziening aan de verplichtingen, bedoeld in [artikel 8](https://wetten.overheid.nl/jci1.3:c:BWBR0035878&hoofdstuk=2&artikel=8&z=2022-07-01&g=2022-07-01), voldoet.
+4. Bij een voorgenomen besluit van een partij als bedoeld in het eerste lid dat tot gevolg heeft dat een openbare bibliotheekvoorziening ophoudt te bestaan of redelijkerwijs niet meer kan voldoen aan de verplichtingen in deze wet, overlegt zij eerst met de andere partijen op wie dit van invloed kan zijn waaronder de ingezetenen. Zo nodig maken zij afspraken over de toegankelijkheid van een openbare bibliotheekvoorziening voor het betrokken algemene publiek.
+5. Bij algemene maatregel van bestuur kunnen nadere regels worden gesteld over de wijze waarop ingezetenen en maatschappelijke initiatieven bij de uitvoering van het beleid kunnen worden betrokken, het uitvoeren van taken van het college op grond van deze wet daaronder begrepen.
+6. De voordracht voor een algemene maatregel van bestuur als bedoeld in het vijfde lid wordt niet eerder gedaan dan vier weken nadat het ontwerp aan beide kamers der Staten-Generaal is overgelegd. Indien een der kamers der Staten-Generaal besluit niet in te stemmen met het ontwerp, wordt er geen voordracht gedaan en kan niet eerder dan zes weken na het besluit van die kamer der Staten-Generaal een nieuw ontwerp aan beide kamers der Staten-Generaal worden overgelegd.

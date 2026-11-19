@@ -12,3 +12,6 @@ push.bat
 # macOS / Windows systeembestanden
 .DS_Store
 Thumbs.db
+
+# Cache van scripts (gedownload schema)
+scripts/.cache/

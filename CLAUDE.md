@@ -18,7 +18,7 @@ Alle inhoud is in het **Nederlands**, met uitzondering van technische standaardt
 
 - Geen architectuurwerk: geen ArchiMate, C4, TOGAF, ADRs of oplossingsontwerpen.
 - Geen Gherkin of andere BDD-specificaties.
-- Geen software die gebouwd moet worden. Het gaat om modellen, voorbeelden en leerervaringen.
+- Geen software die gebouwd moet worden. Het gaat om modellen, voorbeelden en leerervaringen. Kleine hulpscripts in `scripts/`, zoals het omzetten van bronnen, mogen wel. Die zijn hulpmiddel, geen onderwerp van de demo.
 
 Wordt er iets gevraagd dat hierbuiten valt, meld dat dan kort in plaats van het stilzwijgend toe te voegen.
 
@@ -62,8 +62,20 @@ demo/
     02-conceptueel/    niveau 2: ORM-model met feittypen, rollen en regels
     03-logisch/        niveau 3: gegevensmodel voor uitwisseling
     04-fysiek/         niveau 4: technisch schema, alleen ter illustratie
+    bronnen/
+      bronnen.yaml     register van de bronnen van dit voorbeeld
+      README.md        overzicht met links naar de bronnen (gegenereerd)
+      {bron}/
+        origineel/     het opgehaalde bronbestand, ongewijzigd
+        chunks/        Markdown per artikel, met 00-index.md als ingang
+        chunks.jsonl   dezelfde chunks in één bestand
+scripts/               hulpscripts, zie scripts/README.md
 ```
 
+- Bronnen staan per voorbeeld in `demo/{voorbeeld}/bronnen/`. Een nieuwe bron zet je in `bronnen.yaml` van dat voorbeeld en verwerk je met `python scripts/bron_naar_chunks.py`. Het script vindt zelf elke `bronnen/bronnen.yaml`. Kies een gestructureerde bron (XML) boven PDF, voor wetten de geldende tekst van wetten.overheid.nl.
+- Wijzig gegenereerde chunks (`gegenereerd: true` in de header) niet met de hand. Pas het script aan en draai het opnieuw.
+- Lees bij het zoeken in een bron eerst `chunks/00-index.md` en haal daarna alleen de nodige chunks op. Verwijs in modellen naar de bron met artikel en lid.
+- Een ORM-model maak je met de agent `orm-modelleur`. De bron van de waarheid is `02-conceptueel/{naam}.orm.yaml`. `python scripts/orm_naar_factum.py` maakt daar de `.orm.json` voor Factum, het model in zinnen en de begrippenlijst van. Wijzig die gegenereerde bestanden niet met de hand.
 - Houd per voorbeeld de bestanden bij elkaar in een eigen map onder `demo/`, met een korte uitleg erbij. Kopieer `demo/voorbeeld-01` als sjabloon.
 - Niveau 1 en 4 liggen buiten MIM. Laat die mappen leeg of weg als een voorbeeld ze niet nodig heeft.
 - Een ORM-model hoort bij niveau 2. Leg in de README van het voorbeeld uit hoe de ORM-elementen zich verhouden tot de MIM-begrippen.

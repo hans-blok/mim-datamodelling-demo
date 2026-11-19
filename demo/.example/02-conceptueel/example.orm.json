@@ -1,0 +1,1854 @@
+{
+  "$schema": "https://www.factum-orm.com/schema/orm-model-2.schema.json",
+  "version": 2,
+  "name": "orm-varianten",
+  "lang": "nl",
+  "note": "Overzicht van de varianten die een ORM-model kan bevatten, met neutrale namen: feittype A tot en met Z, waardetype 1 tot en met 7 en entiteitstype I tot en met VIII. Leerdoel, geen betekenisvol model.",
+  "objectTypes": [
+    {
+      "id": "ot_e1",
+      "name": "Entiteitstype I",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "integer",
+      "population": [
+        1,
+        2,
+        3
+      ],
+      "meta": {
+        "shortDescription": "Entiteitstype met een numeriek referentieschema."
+      }
+    },
+    {
+      "id": "ot_e2",
+      "name": "Entiteitstype II",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string",
+      "population": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "isPersonal": true,
+      "meta": {
+        "shortDescription": "Entiteitstype met een tekstueel referentieschema, personeel (verbaliseert met 'wie')."
+      }
+    },
+    {
+      "id": "ot_e3",
+      "name": "Entiteitstype III",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string",
+      "population": [
+        "x",
+        "y",
+        "z"
+      ],
+      "meta": {
+        "shortDescription": "Entiteitstype met een cardinaliteitsregel."
+      }
+    },
+    {
+      "id": "ot_e4",
+      "name": "Entiteitstype IV",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "integer",
+      "meta": {
+        "shortDescription": "Supertype van Entiteitstype V en VI."
+      }
+    },
+    {
+      "id": "ot_e5",
+      "name": "Entiteitstype V",
+      "kind": "entity",
+      "meta": {
+        "shortDescription": "Subtype van Entiteitstype IV."
+      }
+    },
+    {
+      "id": "ot_e6",
+      "name": "Entiteitstype VI",
+      "kind": "entity",
+      "meta": {
+        "shortDescription": "Subtype van Entiteitstype IV."
+      }
+    },
+    {
+      "id": "ot_e7",
+      "name": "Entiteitstype VII",
+      "kind": "entity",
+      "objectifiedFactTypeId": "ft_h",
+      "meta": {
+        "shortDescription": "Objectivering van feittype H."
+      }
+    },
+    {
+      "id": "ot_e8",
+      "name": "Entiteitstype VIII",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string",
+      "isIndependent": true,
+      "meta": {
+        "shortDescription": "Onafhankelijk entiteitstype: instanties mogen bestaan zonder een rol te spelen."
+      }
+    },
+    {
+      "id": "ot_w1",
+      "name": "Waardetype 1",
+      "kind": "value",
+      "dataType": "string",
+      "dataTypeLength": 50
+    },
+    {
+      "id": "ot_w2",
+      "name": "Waardetype 2",
+      "kind": "value",
+      "dataType": "integer"
+    },
+    {
+      "id": "ot_w3",
+      "name": "Waardetype 3",
+      "kind": "value",
+      "dataType": "decimal",
+      "dataTypeLength": 5,
+      "dataTypeScale": 2
+    },
+    {
+      "id": "ot_w4",
+      "name": "Waardetype 4",
+      "kind": "value",
+      "dataType": "boolean"
+    },
+    {
+      "id": "ot_w5",
+      "name": "Waardetype 5",
+      "kind": "value",
+      "dataType": "date"
+    },
+    {
+      "id": "ot_w6",
+      "name": "Waardetype 6",
+      "kind": "value",
+      "dataType": "string",
+      "population": [
+        "ROOD",
+        "GROEN",
+        "BLAUW"
+      ]
+    },
+    {
+      "id": "ot_w7",
+      "name": "Waardetype 7",
+      "kind": "value",
+      "dataType": "dateTime"
+    }
+  ],
+  "factTypes": [
+    {
+      "id": "ft_a",
+      "roles": [
+        {
+          "id": "r_a_1",
+          "objectTypeId": "ot_e1"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_a_1",
+          "roleOrder": [
+            "r_a_1"
+          ],
+          "text": "{0} voldoet aan feittype A",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype A",
+        "shortDescription": "Unair feittype"
+      },
+      "note": "Eén rol. Geeft een eigenschap die een instantie wel of niet heeft.",
+      "population": [
+        {
+          "values": [
+            1
+          ]
+        },
+        {
+          "values": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_b",
+      "roles": [
+        {
+          "id": "r_b_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_b_2",
+          "objectTypeId": "ot_e2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_b_1",
+          "roleOrder": [
+            "r_b_1",
+            "r_b_2"
+          ],
+          "text": "{0} heeft feittype B met {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_b_2",
+          "roleOrder": [
+            "r_b_2",
+            "r_b_1"
+          ],
+          "text": "{0} komt voor in feittype B bij {1}"
+        }
+      ],
+      "meta": {
+        "title": "Feittype B",
+        "shortDescription": "Binair n:1, rol van I verplicht"
+      },
+      "note": "Uniciteit op de rol van I. Elke I hoort bij precies één II. Dit is ook het patroon voor een attribuut.",
+      "population": [
+        {
+          "values": [
+            1,
+            "P"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "P"
+          ]
+        },
+        {
+          "values": [
+            3,
+            "Q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_c",
+      "roles": [
+        {
+          "id": "r_c_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_c_2",
+          "objectTypeId": "ot_e2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_c_1",
+          "roleOrder": [
+            "r_c_1",
+            "r_c_2"
+          ],
+          "text": "{0} heeft feittype C met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype C",
+        "shortDescription": "Binair 1:n, optioneel"
+      },
+      "note": "Uniciteit op de rol van II. Elke II hoort bij hooguit één I.",
+      "population": [
+        {
+          "values": [
+            1,
+            "P"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "Q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_d",
+      "roles": [
+        {
+          "id": "r_d_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_d_2",
+          "objectTypeId": "ot_e2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_d_1",
+          "roleOrder": [
+            "r_d_1",
+            "r_d_2"
+          ],
+          "text": "{0} heeft feittype D met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype D",
+        "shortDescription": "Binair 1:1, beide rollen verplicht"
+      },
+      "note": "Uniciteit op beide rollen apart en beide rollen verplicht.",
+      "population": [
+        {
+          "values": [
+            1,
+            "P"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "Q"
+          ]
+        },
+        {
+          "values": [
+            3,
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_e",
+      "roles": [
+        {
+          "id": "r_e_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_e_2",
+          "objectTypeId": "ot_e2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_e_1",
+          "roleOrder": [
+            "r_e_1",
+            "r_e_2"
+          ],
+          "text": "{0} heeft feittype E met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype E",
+        "shortDescription": "Binair m:n, met frequentieregel"
+      },
+      "note": "Uniciteit over beide rollen samen. Frequentieregel: een I die meedoet, doet 2 tot 3 keer mee.",
+      "population": [
+        {
+          "values": [
+            1,
+            "P"
+          ]
+        },
+        {
+          "values": [
+            1,
+            "Q"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "P"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "Q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_f",
+      "roles": [
+        {
+          "id": "r_f_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_f_2",
+          "objectTypeId": "ot_w1"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_f_1",
+          "roleOrder": [
+            "r_f_1",
+            "r_f_2"
+          ],
+          "text": "{0} heeft feittype F met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype F",
+        "shortDescription": "Attribuut, verplicht"
+      },
+      "note": "Uniciteit op de rol van I, verplicht. Elke I heeft precies één waarde.",
+      "population": [
+        {
+          "values": [
+            1,
+            "alfa"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "beta"
+          ]
+        },
+        {
+          "values": [
+            3,
+            "gamma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_g",
+      "roles": [
+        {
+          "id": "r_g_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_g_2",
+          "objectTypeId": "ot_w2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_g_1",
+          "roleOrder": [
+            "r_g_1",
+            "r_g_2"
+          ],
+          "text": "{0} heeft feittype G met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype G",
+        "shortDescription": "Attribuut, optioneel, deontisch verplicht"
+      },
+      "note": "Uniciteit op de rol van I. Verplicht in deontische zin: het hoort zo, maar mag in de praktijk ontbreken.",
+      "population": [
+        {
+          "values": [
+            1,
+            4
+          ]
+        },
+        {
+          "values": [
+            2,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_h",
+      "roles": [
+        {
+          "id": "r_h_1",
+          "objectTypeId": "ot_e2"
+        },
+        {
+          "id": "r_h_2",
+          "objectTypeId": "ot_e3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_h_1",
+          "roleOrder": [
+            "r_h_1",
+            "r_h_2"
+          ],
+          "text": "{0} heeft feittype H met {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_h_2",
+          "roleOrder": [
+            "r_h_2",
+            "r_h_1"
+          ],
+          "text": "{0} komt voor in feittype H bij {1}"
+        }
+      ],
+      "meta": {
+        "title": "Feittype H",
+        "shortDescription": "Binair m:n, geobjectiveerd"
+      },
+      "note": "Het feittype is zelf een object geworden (Entiteitstype VII) en kan daardoor rollen spelen in andere feittypen.",
+      "population": [
+        {
+          "values": [
+            "P",
+            "x"
+          ]
+        },
+        {
+          "values": [
+            "Q",
+            "x"
+          ]
+        },
+        {
+          "values": [
+            "Q",
+            "y"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_i",
+      "roles": [
+        {
+          "id": "r_i_1",
+          "objectTypeId": "ot_e7"
+        },
+        {
+          "id": "r_i_2",
+          "objectTypeId": "ot_w3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_i_1",
+          "roleOrder": [
+            "r_i_1",
+            "r_i_2"
+          ],
+          "text": "{0} heeft feittype I met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype I",
+        "shortDescription": "Attribuut van een geobjectiveerd feittype"
+      },
+      "note": "Het geobjectiveerde feittype speelt een rol, met een waardeverzameling op de rol."
+    },
+    {
+      "id": "ft_j",
+      "roles": [
+        {
+          "id": "r_j_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_j_2",
+          "objectTypeId": "ot_e2"
+        },
+        {
+          "id": "r_j_3",
+          "objectTypeId": "ot_e3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_j_1",
+          "roleOrder": [
+            "r_j_1",
+            "r_j_2",
+            "r_j_3"
+          ],
+          "text": "{0} heeft in feittype J met {1} de {2}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype J",
+        "shortDescription": "Ternair, uniciteit over twee rollen"
+      },
+      "note": "Uniciteit over de rollen van I en II samen. Bij een combinatie van I en II hoort hooguit één III.",
+      "population": [
+        {
+          "values": [
+            1,
+            "P",
+            "x"
+          ]
+        },
+        {
+          "values": [
+            1,
+            "Q",
+            "y"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "P",
+            "x"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_k",
+      "roles": [
+        {
+          "id": "r_k_1",
+          "objectTypeId": "ot_e2"
+        },
+        {
+          "id": "r_k_2",
+          "objectTypeId": "ot_w4"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_k_1",
+          "roleOrder": [
+            "r_k_1",
+            "r_k_2"
+          ],
+          "text": "{0} heeft feittype K met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype K",
+        "shortDescription": "Attribuut met booleaanse waarde"
+      },
+      "note": "Waardetype 4 heeft het gegevenstype boolean.",
+      "population": [
+        {
+          "values": [
+            "P",
+            true
+          ]
+        },
+        {
+          "values": [
+            "Q",
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_l",
+      "roles": [
+        {
+          "id": "r_l_1",
+          "objectTypeId": "ot_e2"
+        },
+        {
+          "id": "r_l_2",
+          "objectTypeId": "ot_w5"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_l_1",
+          "roleOrder": [
+            "r_l_1",
+            "r_l_2"
+          ],
+          "text": "{0} heeft feittype L met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype L",
+        "shortDescription": "Attribuut met datum"
+      },
+      "note": "Waardetype 5 heeft het gegevenstype date.",
+      "population": [
+        {
+          "values": [
+            "P",
+            "2026-01-15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_m",
+      "roles": [
+        {
+          "id": "r_m_1",
+          "objectTypeId": "ot_e3"
+        },
+        {
+          "id": "r_m_2",
+          "objectTypeId": "ot_w6"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_m_1",
+          "roleOrder": [
+            "r_m_1",
+            "r_m_2"
+          ],
+          "text": "{0} heeft feittype M met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype M",
+        "shortDescription": "Attribuut met opsomming"
+      },
+      "note": "Waardetype 6 heeft een vaste lijst waarden.",
+      "population": [
+        {
+          "values": [
+            "x",
+            "ROOD"
+          ]
+        },
+        {
+          "values": [
+            "y",
+            "GROEN"
+          ]
+        },
+        {
+          "values": [
+            "z",
+            "BLAUW"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_n",
+      "roles": [
+        {
+          "id": "r_n_1",
+          "objectTypeId": "ot_e1",
+          "name": "vorige"
+        },
+        {
+          "id": "r_n_2",
+          "objectTypeId": "ot_e1",
+          "name": "volgende"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_n_1",
+          "roleOrder": [
+            "r_n_1",
+            "r_n_2"
+          ],
+          "text": "{0} heeft feittype N met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype N",
+        "shortDescription": "Ring: asymmetrisch en intransitief"
+      },
+      "note": "Recursief feittype op Entiteitstype I.",
+      "population": [
+        {
+          "values": [
+            1,
+            2
+          ]
+        },
+        {
+          "values": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_o",
+      "roles": [
+        {
+          "id": "r_o_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_o_2",
+          "objectTypeId": "ot_e1"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_o_1",
+          "roleOrder": [
+            "r_o_1",
+            "r_o_2"
+          ],
+          "text": "{0} heeft feittype O met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype O",
+        "shortDescription": "Ring: symmetrisch en irreflexief"
+      },
+      "note": "Als de ene I verwijst naar de andere, dan ook andersom. Geen I verwijst naar zichzelf.",
+      "population": [
+        {
+          "values": [
+            1,
+            2
+          ]
+        },
+        {
+          "values": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_p",
+      "roles": [
+        {
+          "id": "r_p_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_p_2",
+          "objectTypeId": "ot_e1"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_p_1",
+          "roleOrder": [
+            "r_p_1",
+            "r_p_2"
+          ],
+          "text": "{0} heeft feittype P met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype P",
+        "shortDescription": "Ring: acyclisch"
+      },
+      "note": "Een keten van P-feiten komt nooit terug bij het begin.",
+      "population": [
+        {
+          "values": [
+            1,
+            2
+          ]
+        },
+        {
+          "values": [
+            2,
+            3
+          ]
+        },
+        {
+          "values": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_q",
+      "roles": [
+        {
+          "id": "r_q_1",
+          "objectTypeId": "ot_e2"
+        },
+        {
+          "id": "r_q_2",
+          "objectTypeId": "ot_e2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_q_1",
+          "roleOrder": [
+            "r_q_1",
+            "r_q_2"
+          ],
+          "text": "{0} heeft feittype Q met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype Q",
+        "shortDescription": "Ring: reflexief, antisymmetrisch en transitief"
+      },
+      "note": "Samen een partiële ordening op Entiteitstype II.",
+      "population": [
+        {
+          "values": [
+            "P",
+            "P"
+          ]
+        },
+        {
+          "values": [
+            "Q",
+            "Q"
+          ]
+        },
+        {
+          "values": [
+            "P",
+            "Q"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_r",
+      "roles": [
+        {
+          "id": "r_r_1",
+          "objectTypeId": "ot_e4"
+        },
+        {
+          "id": "r_r_2",
+          "objectTypeId": "ot_w7"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_r_1",
+          "roleOrder": [
+            "r_r_1",
+            "r_r_2"
+          ],
+          "text": "{0} heeft feittype R met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype R",
+        "shortDescription": "Attribuut van het supertype"
+      },
+      "note": "Subtypen erven dit feittype."
+    },
+    {
+      "id": "ft_s",
+      "roles": [
+        {
+          "id": "r_s_1",
+          "objectTypeId": "ot_e5"
+        },
+        {
+          "id": "r_s_2",
+          "objectTypeId": "ot_w1"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_s_1",
+          "roleOrder": [
+            "r_s_1",
+            "r_s_2"
+          ],
+          "text": "{0} heeft feittype S met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype S",
+        "shortDescription": "Attribuut van alleen subtype V"
+      },
+      "note": "Geldt alleen voor Entiteitstype V."
+    },
+    {
+      "id": "ft_t",
+      "roles": [
+        {
+          "id": "r_t_1",
+          "objectTypeId": "ot_e6"
+        },
+        {
+          "id": "r_t_2",
+          "objectTypeId": "ot_w2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_t_1",
+          "roleOrder": [
+            "r_t_1",
+            "r_t_2"
+          ],
+          "text": "{0} heeft feittype T met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype T",
+        "shortDescription": "Attribuut van alleen subtype VI"
+      },
+      "note": "Geldt alleen voor Entiteitstype VI."
+    },
+    {
+      "id": "ft_u",
+      "roles": [
+        {
+          "id": "r_u_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_u_2",
+          "objectTypeId": "ot_w2"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_u_1",
+          "roleOrder": [
+            "r_u_1",
+            "r_u_2"
+          ],
+          "text": "{0} heeft feittype U met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype U",
+        "shortDescription": "Afgeleid feittype"
+      },
+      "note": "Wordt berekend en niet opgeslagen.",
+      "isDerived": true,
+      "derivationRule": "Waardetype 2 is het aantal keer dat Entiteitstype I voorkomt in feittype E."
+    },
+    {
+      "id": "ft_v",
+      "roles": [
+        {
+          "id": "r_v_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_v_2",
+          "objectTypeId": "ot_w3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_v_1",
+          "roleOrder": [
+            "r_v_1",
+            "r_v_2"
+          ],
+          "text": "{0} heeft feittype V met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype V",
+        "shortDescription": "Afgeleid en opgeslagen feittype"
+      },
+      "note": "Wordt berekend en daarna toch vastgelegd.",
+      "isDerived": true,
+      "isStored": true,
+      "derivationRule": "Waardetype 3 is het gemiddelde van Waardetype 2 over feittype G voor Entiteitstype I."
+    },
+    {
+      "id": "ft_w",
+      "roles": [
+        {
+          "id": "r_w_1",
+          "objectTypeId": "ot_e8"
+        },
+        {
+          "id": "r_w_2",
+          "objectTypeId": "ot_w1"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_w_1",
+          "roleOrder": [
+            "r_w_1",
+            "r_w_2"
+          ],
+          "text": "{0} heeft feittype W met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype W",
+        "shortDescription": "Attribuut van een onafhankelijk entiteitstype"
+      },
+      "note": "Entiteitstype VIII mag bestaan zonder in een feit voor te komen."
+    },
+    {
+      "id": "ft_x",
+      "roles": [
+        {
+          "id": "r_x_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_x_2",
+          "objectTypeId": "ot_e3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_x_1",
+          "roleOrder": [
+            "r_x_1",
+            "r_x_2"
+          ],
+          "text": "{0} heeft feittype X met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype X",
+        "shortDescription": "Binair m:n, gelijk aan Y"
+      },
+      "note": "Eén van drie feittypen voor de verzamelingsregels.",
+      "population": [
+        {
+          "values": [
+            1,
+            "x"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "y"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_y",
+      "roles": [
+        {
+          "id": "r_y_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_y_2",
+          "objectTypeId": "ot_e3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_y_1",
+          "roleOrder": [
+            "r_y_1",
+            "r_y_2"
+          ],
+          "text": "{0} heeft feittype Y met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype Y",
+        "shortDescription": "Binair m:n, gelijk aan X, sluit Z uit"
+      },
+      "note": "Eén van drie feittypen voor de verzamelingsregels.",
+      "population": [
+        {
+          "values": [
+            1,
+            "x"
+          ]
+        },
+        {
+          "values": [
+            2,
+            "y"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft_z",
+      "roles": [
+        {
+          "id": "r_z_1",
+          "objectTypeId": "ot_e1"
+        },
+        {
+          "id": "r_z_2",
+          "objectTypeId": "ot_e3"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_z_1",
+          "roleOrder": [
+            "r_z_1",
+            "r_z_2"
+          ],
+          "text": "{0} heeft feittype Z met {1}",
+          "isPrimary": true
+        }
+      ],
+      "meta": {
+        "title": "Feittype Z",
+        "shortDescription": "Binair m:n, sluit Y uit"
+      },
+      "note": "Eén van drie feittypen voor de verzamelingsregels.",
+      "population": [
+        {
+          "values": [
+            3,
+            "x"
+          ]
+        },
+        {
+          "values": [
+            3,
+            "z"
+          ]
+        }
+      ]
+    }
+  ],
+  "subtypeRelations": [
+    {
+      "id": "st_v",
+      "subtypeId": "ot_e5",
+      "supertypeId": "ot_e4"
+    },
+    {
+      "id": "st_vi",
+      "subtypeId": "ot_e6",
+      "supertypeId": "ot_e4"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "uc_b",
+      "kind": "uniqueness",
+      "roles": [
+        "r_b_1"
+      ]
+    },
+    {
+      "id": "mc_b",
+      "kind": "mandatory",
+      "roles": [
+        "r_b_1"
+      ]
+    },
+    {
+      "id": "uc_c",
+      "kind": "uniqueness",
+      "roles": [
+        "r_c_2"
+      ]
+    },
+    {
+      "id": "uc_d_1",
+      "kind": "uniqueness",
+      "roles": [
+        "r_d_1"
+      ]
+    },
+    {
+      "id": "uc_d_2",
+      "kind": "uniqueness",
+      "roles": [
+        "r_d_2"
+      ]
+    },
+    {
+      "id": "mc_d_1",
+      "kind": "mandatory",
+      "roles": [
+        "r_d_1"
+      ]
+    },
+    {
+      "id": "mc_d_2",
+      "kind": "mandatory",
+      "roles": [
+        "r_d_2"
+      ]
+    },
+    {
+      "id": "uc_e",
+      "kind": "uniqueness",
+      "roles": [
+        "r_e_1",
+        "r_e_2"
+      ]
+    },
+    {
+      "id": "fc_e",
+      "kind": "frequency",
+      "roles": [
+        "r_e_1"
+      ],
+      "min": 2,
+      "max": 3
+    },
+    {
+      "id": "uc_f",
+      "kind": "uniqueness",
+      "roles": [
+        "r_f_1"
+      ]
+    },
+    {
+      "id": "mc_f",
+      "kind": "mandatory",
+      "roles": [
+        "r_f_1"
+      ]
+    },
+    {
+      "id": "uc_g",
+      "kind": "uniqueness",
+      "roles": [
+        "r_g_1"
+      ]
+    },
+    {
+      "id": "mc_g",
+      "kind": "mandatory",
+      "roles": [
+        "r_g_1"
+      ],
+      "modality": "deontic"
+    },
+    {
+      "id": "vc_w2",
+      "kind": "value",
+      "objectTypeId": "ot_w2",
+      "ranges": [
+        {
+          "min": 1,
+          "max": 10,
+          "minInclusive": true,
+          "maxInclusive": true
+        }
+      ]
+    },
+    {
+      "id": "uc_h",
+      "kind": "uniqueness",
+      "roles": [
+        "r_h_1",
+        "r_h_2"
+      ]
+    },
+    {
+      "id": "uc_i",
+      "kind": "uniqueness",
+      "roles": [
+        "r_i_1"
+      ]
+    },
+    {
+      "id": "vc_i_role",
+      "kind": "value",
+      "roleId": "r_i_2",
+      "ranges": [
+        {
+          "min": 0,
+          "max": 100,
+          "minInclusive": true,
+          "maxInclusive": true
+        }
+      ]
+    },
+    {
+      "id": "uc_j",
+      "kind": "uniqueness",
+      "roles": [
+        "r_j_1",
+        "r_j_2"
+      ]
+    },
+    {
+      "id": "uc_k",
+      "kind": "uniqueness",
+      "roles": [
+        "r_k_1"
+      ]
+    },
+    {
+      "id": "uc_l",
+      "kind": "uniqueness",
+      "roles": [
+        "r_l_1"
+      ]
+    },
+    {
+      "id": "uc_m",
+      "kind": "uniqueness",
+      "roles": [
+        "r_m_1"
+      ]
+    },
+    {
+      "id": "mc_m",
+      "kind": "mandatory",
+      "roles": [
+        "r_m_1"
+      ]
+    },
+    {
+      "id": "vc_w6",
+      "kind": "value",
+      "objectTypeId": "ot_w6",
+      "ranges": [
+        {
+          "value": "ROOD"
+        },
+        {
+          "value": "GROEN"
+        },
+        {
+          "value": "BLAUW"
+        }
+      ]
+    },
+    {
+      "id": "rc_n",
+      "kind": "ring",
+      "roles": [
+        "r_n_1",
+        "r_n_2"
+      ],
+      "types": [
+        "asymmetric",
+        "intransitive"
+      ]
+    },
+    {
+      "id": "rc_o",
+      "kind": "ring",
+      "roles": [
+        "r_o_1",
+        "r_o_2"
+      ],
+      "types": [
+        "symmetric",
+        "irreflexive"
+      ]
+    },
+    {
+      "id": "rc_p",
+      "kind": "ring",
+      "roles": [
+        "r_p_1",
+        "r_p_2"
+      ],
+      "types": [
+        "acyclic"
+      ]
+    },
+    {
+      "id": "rc_q",
+      "kind": "ring",
+      "roles": [
+        "r_q_1",
+        "r_q_2"
+      ],
+      "types": [
+        "reflexive",
+        "antisymmetric",
+        "transitive"
+      ]
+    },
+    {
+      "id": "uc_r",
+      "kind": "uniqueness",
+      "roles": [
+        "r_r_1"
+      ]
+    },
+    {
+      "id": "mc_r",
+      "kind": "mandatory",
+      "roles": [
+        "r_r_1"
+      ]
+    },
+    {
+      "id": "uc_s",
+      "kind": "uniqueness",
+      "roles": [
+        "r_s_1"
+      ]
+    },
+    {
+      "id": "uc_t",
+      "kind": "uniqueness",
+      "roles": [
+        "r_t_1"
+      ]
+    },
+    {
+      "id": "uc_u",
+      "kind": "uniqueness",
+      "roles": [
+        "r_u_1"
+      ]
+    },
+    {
+      "id": "uc_v",
+      "kind": "uniqueness",
+      "roles": [
+        "r_v_1"
+      ]
+    },
+    {
+      "id": "uc_w",
+      "kind": "uniqueness",
+      "roles": [
+        "r_w_1"
+      ]
+    },
+    {
+      "id": "uc_x",
+      "kind": "uniqueness",
+      "roles": [
+        "r_x_1",
+        "r_x_2"
+      ]
+    },
+    {
+      "id": "uc_y",
+      "kind": "uniqueness",
+      "roles": [
+        "r_y_1",
+        "r_y_2"
+      ]
+    },
+    {
+      "id": "uc_z",
+      "kind": "uniqueness",
+      "roles": [
+        "r_z_1",
+        "r_z_2"
+      ]
+    },
+    {
+      "id": "sc_c_e",
+      "kind": "subset",
+      "roleSequences": [
+        [
+          "r_c_1",
+          "r_c_2"
+        ],
+        [
+          "r_e_1",
+          "r_e_2"
+        ]
+      ],
+      "note": "Subset: elk paar in feittype C staat ook in feittype E."
+    },
+    {
+      "id": "eq_x_y",
+      "kind": "equality",
+      "roleSequences": [
+        [
+          "r_x_1",
+          "r_x_2"
+        ],
+        [
+          "r_y_1",
+          "r_y_2"
+        ]
+      ],
+      "note": "Gelijkheid: feittype X en feittype Y bevatten dezelfde paren."
+    },
+    {
+      "id": "xc_y_z",
+      "kind": "exclusion",
+      "roleSequences": [
+        [
+          "r_y_1",
+          "r_y_2"
+        ],
+        [
+          "r_z_1",
+          "r_z_2"
+        ]
+      ],
+      "note": "Uitsluiting: een paar staat niet in beide feittypen Y en Z."
+    },
+    {
+      "id": "mc_x_z",
+      "kind": "mandatory",
+      "roles": [
+        "r_x_2",
+        "r_z_2"
+      ],
+      "note": "Disjunctieve verplichting: elke III speelt een rol in feittype X of in feittype Z."
+    },
+    {
+      "id": "cc_e3",
+      "kind": "cardinality",
+      "objectTypeId": "ot_e3",
+      "min": 1,
+      "max": 10,
+      "note": "Cardinaliteit op een objecttype: 1 tot 10 instanties."
+    },
+    {
+      "id": "cc_y_role",
+      "kind": "cardinality",
+      "roleId": "r_y_2",
+      "min": 1,
+      "max": 5,
+      "note": "Cardinaliteit op een rol: 1 tot 5."
+    },
+    {
+      "id": "ss_e4",
+      "kind": "subtypeSet",
+      "supertypeId": "ot_e4",
+      "subtypeRelationIds": [
+        "st_v",
+        "st_vi"
+      ],
+      "isExclusive": true,
+      "isExhaustive": true,
+      "note": "Elke IV is precies één van V of VI."
+    }
+  ],
+  "diagram": {
+    "shapes": {
+      "ot_e1": {
+        "x": 335,
+        "y": 675
+      },
+      "ot_e2": {
+        "x": 935,
+        "y": 675
+      },
+      "ot_e3": {
+        "x": 1585,
+        "y": 675
+      },
+      "ft_a": {
+        "x": 386,
+        "y": 579,
+        "orientation": "horizontal"
+      },
+      "ft_o": {
+        "x": 222,
+        "y": 549,
+        "orientation": "horizontal"
+      },
+      "ft_n": {
+        "x": 182,
+        "y": 639,
+        "orientation": "horizontal"
+      },
+      "ft_p": {
+        "x": 182,
+        "y": 749,
+        "orientation": "horizontal"
+      },
+      "ft_b": {
+        "x": 672,
+        "y": 549,
+        "orientation": "horizontal"
+      },
+      "ft_c": {
+        "x": 672,
+        "y": 609,
+        "orientation": "horizontal"
+      },
+      "ft_d": {
+        "x": 672,
+        "y": 669,
+        "orientation": "horizontal"
+      },
+      "ft_e": {
+        "x": 672,
+        "y": 729,
+        "orientation": "horizontal"
+      },
+      "ot_w3": {
+        "x": 945,
+        "y": 162
+      },
+      "ft_v": {
+        "x": 672,
+        "y": 429,
+        "orientation": "horizontal"
+      },
+      "ft_i": {
+        "x": 1152,
+        "y": 429,
+        "orientation": "horizontal"
+      },
+      "ft_q": {
+        "x": 972,
+        "y": 549,
+        "orientation": "horizontal"
+      },
+      "ft_k": {
+        "x": 869,
+        "y": 512,
+        "orientation": "vertical"
+      },
+      "ot_w4": {
+        "x": 825,
+        "y": 402
+      },
+      "ft_l": {
+        "x": 1109,
+        "y": 512,
+        "orientation": "vertical"
+      },
+      "ot_w5": {
+        "x": 1065,
+        "y": 402
+      },
+      "ft_h": {
+        "x": 1297,
+        "y": 689,
+        "orientation": "horizontal"
+      },
+      "ot_e7": {
+        "x": 1260,
+        "y": 675
+      },
+      "ft_m": {
+        "x": 1802,
+        "y": 689,
+        "orientation": "horizontal"
+      },
+      "ot_w6": {
+        "x": 1935,
+        "y": 682
+      },
+      "ft_j": {
+        "x": 958,
+        "y": 949,
+        "orientation": "horizontal"
+      },
+      "ft_x": {
+        "x": 1122,
+        "y": 1139,
+        "orientation": "horizontal"
+      },
+      "ft_y": {
+        "x": 1122,
+        "y": 1219,
+        "orientation": "horizontal"
+      },
+      "ft_z": {
+        "x": 1122,
+        "y": 1299,
+        "orientation": "horizontal"
+      },
+      "eq_x_y": {
+        "x": 1010,
+        "y": 1260
+      },
+      "ot_w2": {
+        "x": 35,
+        "y": 982
+      },
+      "ft_u": {
+        "x": 232,
+        "y": 849,
+        "orientation": "horizontal"
+      },
+      "ft_g": {
+        "x": 172,
+        "y": 899,
+        "orientation": "horizontal"
+      },
+      "ot_w1": {
+        "x": 505,
+        "y": 992
+      },
+      "ft_f": {
+        "x": 469,
+        "y": 832,
+        "orientation": "vertical"
+      },
+      "ot_e8": {
+        "x": 695,
+        "y": 1155
+      },
+      "ft_w": {
+        "x": 632,
+        "y": 1089,
+        "orientation": "horizontal"
+      },
+      "ot_e4": {
+        "x": 355,
+        "y": 1295
+      },
+      "ft_r": {
+        "x": 409,
+        "y": 1182,
+        "orientation": "vertical"
+      },
+      "ot_w7": {
+        "x": 365,
+        "y": 1092
+      },
+      "ot_e6": {
+        "x": 155,
+        "y": 1495
+      },
+      "ot_e5": {
+        "x": 555,
+        "y": 1495
+      },
+      "ft_s": {
+        "x": 579,
+        "y": 1232,
+        "orientation": "vertical"
+      },
+      "ft_t": {
+        "x": 139,
+        "y": 1222,
+        "orientation": "vertical"
+      }
+    }
+  }
+}

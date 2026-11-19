@@ -1,0 +1,624 @@
+{
+  "$schema": "https://www.factum-orm.com/schema/orm-model-2.schema.json",
+  "version": 2,
+  "name": "lidmaatschap",
+  "lang": "nl",
+  "note": "Lidmaatschap van de openbare bibliotheek. Voorstel van AI, nog niet gecontroleerd door een deskundige.",
+  "objectTypes": [
+    {
+      "id": "ot_persoon",
+      "name": "Persoon",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "P001",
+        "P002",
+        "P003"
+      ],
+      "note": "Definitie: Mens die lid van de openbare bibliotheek is of kan worden.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek.",
+      "meta": {
+        "shortDescription": "Mens die lid van de openbare bibliotheek is of kan worden.",
+        "description": "Definitie: Mens die lid van de openbare bibliotheek is of kan worden.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek."
+      }
+    },
+    {
+      "id": "ot_lidmaatschap",
+      "name": "Lidmaatschap",
+      "kind": "entity",
+      "refMode": "nr",
+      "dataType": "string",
+      "population": [
+        "L001",
+        "L002",
+        "L003"
+      ],
+      "note": "Definitie: Verbintenis van een persoon met de openbare bibliotheek, voor het gebruik van een of beide voorzieningen.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 2.\n\nArtikel 12 lid 2:\nHet lidmaatschap bij de openbare bibliotheek kan het gebruik van een fysieke voorziening, de digitale voorziening of beide voorzieningen omvatten.",
+      "meta": {
+        "shortDescription": "Verbintenis van een persoon met de openbare bibliotheek, voor het gebruik van een of beide voorzieningen.",
+        "description": "Definitie: Verbintenis van een persoon met de openbare bibliotheek, voor het gebruik van een of beide voorzieningen.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 2.\n\nArtikel 12 lid 2:\nHet lidmaatschap bij de openbare bibliotheek kan het gebruik van een fysieke voorziening, de digitale voorziening of beide voorzieningen omvatten."
+      }
+    },
+    {
+      "id": "ot_voorziening",
+      "name": "Voorziening",
+      "kind": "entity",
+      "refMode": "code",
+      "dataType": "string",
+      "population": [
+        "V01",
+        "V02"
+      ],
+      "note": "Definitie: Plek of dienst van de openbare bibliotheek waar een lid gebruik van kan maken.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 2 en 3.\n\nArtikel 12 lid 2:\nHet lidmaatschap bij de openbare bibliotheek kan het gebruik van een fysieke voorziening, de digitale voorziening of beide voorzieningen omvatten.\n\nArtikel 12 lid 3:\nEen fysieke voorziening is een lokale bibliotheek, de digitale voorziening is de landelijke digitale bibliotheek.",
+      "meta": {
+        "shortDescription": "Plek of dienst van de openbare bibliotheek waar een lid gebruik van kan maken.",
+        "description": "Definitie: Plek of dienst van de openbare bibliotheek waar een lid gebruik van kan maken.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 2 en 3.\n\nArtikel 12 lid 2:\nHet lidmaatschap bij de openbare bibliotheek kan het gebruik van een fysieke voorziening, de digitale voorziening of beide voorzieningen omvatten.\n\nArtikel 12 lid 3:\nEen fysieke voorziening is een lokale bibliotheek, de digitale voorziening is de landelijke digitale bibliotheek."
+      }
+    },
+    {
+      "id": "ot_soort_voorziening",
+      "name": "Soort voorziening",
+      "kind": "value",
+      "dataType": "string",
+      "note": "Definitie: Aanduiding of een voorziening fysiek of digitaal is.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 3.\n\nArtikel 12 lid 3:\nEen fysieke voorziening is een lokale bibliotheek, de digitale voorziening is de landelijke digitale bibliotheek.",
+      "meta": {
+        "shortDescription": "Aanduiding of een voorziening fysiek of digitaal is.",
+        "description": "Definitie: Aanduiding of een voorziening fysiek of digitaal is.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 3.\n\nArtikel 12 lid 3:\nEen fysieke voorziening is een lokale bibliotheek, de digitale voorziening is de landelijke digitale bibliotheek."
+      }
+    },
+    {
+      "id": "ot_register",
+      "name": "Register",
+      "kind": "value",
+      "dataType": "string",
+      "note": "Definitie: Registratie waarin een ingezetene staat ingeschreven.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek.",
+      "meta": {
+        "shortDescription": "Registratie waarin een ingezetene staat ingeschreven.",
+        "description": "Definitie: Registratie waarin een ingezetene staat ingeschreven.\n\nAI-voorstel, gebaseerd op Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek."
+      }
+    },
+    {
+      "id": "ot_geboortedatum",
+      "name": "Geboortedatum",
+      "kind": "value",
+      "dataType": "date",
+      "population": [
+        "2015-03-12",
+        "1990-07-01"
+      ],
+      "note": "Definitie: Datum waarop een persoon is geboren.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven.",
+      "meta": {
+        "shortDescription": "Datum waarop een persoon is geboren.",
+        "description": "Definitie: Datum waarop een persoon is geboren.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven."
+      }
+    },
+    {
+      "id": "ot_contributiebedrag",
+      "name": "Contributiebedrag",
+      "kind": "value",
+      "dataType": "decimal",
+      "population": [
+        "0.00",
+        "40.00"
+      ],
+      "note": "Definitie: Bedrag in euro dat een lid betaalt voor het lidmaatschap.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven.",
+      "meta": {
+        "shortDescription": "Bedrag in euro dat een lid betaalt voor het lidmaatschap.",
+        "description": "Definitie: Bedrag in euro dat een lid betaalt voor het lidmaatschap.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven."
+      }
+    }
+  ],
+  "factTypes": [
+    {
+      "id": "ft_persoon_is_als_ingezetene_ingeschreven_in_register",
+      "roles": [
+        {
+          "id": "r_persoon_is_als_ingezetene_ingeschreven_in_register_0",
+          "objectTypeId": "ot_persoon"
+        },
+        {
+          "id": "r_persoon_is_als_ingezetene_ingeschreven_in_register_1",
+          "objectTypeId": "ot_register"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_persoon_is_als_ingezetene_ingeschreven_in_register",
+          "roleOrder": [
+            "r_persoon_is_als_ingezetene_ingeschreven_in_register_0",
+            "r_persoon_is_als_ingezetene_ingeschreven_in_register_1"
+          ],
+          "text": "{0} is als ingezetene ingeschreven in {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_persoon_is_als_ingezetene_ingeschreven_in_register_inv",
+          "roleOrder": [
+            "r_persoon_is_als_ingezetene_ingeschreven_in_register_1",
+            "r_persoon_is_als_ingezetene_ingeschreven_in_register_0"
+          ],
+          "text": "{0} bevat de inschrijving van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "P001",
+            "basisregistratie personen"
+          ]
+        },
+        {
+          "values": [
+            "P002",
+            "basisregistratie personen"
+          ]
+        },
+        {
+          "values": [
+            "P003",
+            "basisadministratie BES"
+          ]
+        }
+      ],
+      "note": "Bron: Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek.",
+      "meta": {
+        "description": "Bron: Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek."
+      }
+    },
+    {
+      "id": "ft_persoon_heeft_geboortedatum",
+      "roles": [
+        {
+          "id": "r_persoon_heeft_geboortedatum_0",
+          "objectTypeId": "ot_persoon"
+        },
+        {
+          "id": "r_persoon_heeft_geboortedatum_1",
+          "objectTypeId": "ot_geboortedatum"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_persoon_heeft_geboortedatum",
+          "roleOrder": [
+            "r_persoon_heeft_geboortedatum_0",
+            "r_persoon_heeft_geboortedatum_1"
+          ],
+          "text": "{0} heeft {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_persoon_heeft_geboortedatum_inv",
+          "roleOrder": [
+            "r_persoon_heeft_geboortedatum_1",
+            "r_persoon_heeft_geboortedatum_0"
+          ],
+          "text": "{0} is van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "P001",
+            "2015-03-12"
+          ]
+        },
+        {
+          "values": [
+            "P002",
+            "1990-07-01"
+          ]
+        },
+        {
+          "values": [
+            "P003",
+            "1990-07-01"
+          ]
+        }
+      ],
+      "note": "Nodig om te bepalen of iemand jonger is dan achttien jaar.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1 en 2.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven.\n\nArtikel 13 lid 2:\nVoor personen beneden de leeftijd van achttien jaar wordt geen tarief als bedoeld in artikel 14, contributie of geldelijke bijdrage vastgesteld voor de toegang tot door de Koninklijke Bibliotheek aangewezen digitale werken.",
+      "meta": {
+        "description": "Nodig om te bepalen of iemand jonger is dan achttien jaar.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1 en 2.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven.\n\nArtikel 13 lid 2:\nVoor personen beneden de leeftijd van achttien jaar wordt geen tarief als bedoeld in artikel 14, contributie of geldelijke bijdrage vastgesteld voor de toegang tot door de Koninklijke Bibliotheek aangewezen digitale werken.",
+        "shortDescription": "Nodig om te bepalen of iemand jonger is dan achttien jaar."
+      }
+    },
+    {
+      "id": "ft_lidmaatschap_is_van_persoon",
+      "roles": [
+        {
+          "id": "r_lidmaatschap_is_van_persoon_0",
+          "objectTypeId": "ot_lidmaatschap"
+        },
+        {
+          "id": "r_lidmaatschap_is_van_persoon_1",
+          "objectTypeId": "ot_persoon"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_lidmaatschap_is_van_persoon",
+          "roleOrder": [
+            "r_lidmaatschap_is_van_persoon_0",
+            "r_lidmaatschap_is_van_persoon_1"
+          ],
+          "text": "{0} is van {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_lidmaatschap_is_van_persoon_inv",
+          "roleOrder": [
+            "r_lidmaatschap_is_van_persoon_1",
+            "r_lidmaatschap_is_van_persoon_0"
+          ],
+          "text": "{0} heeft {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "L001",
+            "P001"
+          ]
+        },
+        {
+          "values": [
+            "L002",
+            "P002"
+          ]
+        },
+        {
+          "values": [
+            "L003",
+            "P002"
+          ]
+        }
+      ],
+      "note": "Bron: Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek.",
+      "meta": {
+        "description": "Bron: Wsob artikel 12 lid 1.\n\nArtikel 12 lid 1:\nEen ieder die als ingezetene is ingeschreven in de basisregistratie personen, bedoeld in artikel 1.2 van de Wet basisregistratie personen, of in een basisadministratie als bedoeld in artikel 2 van de Wet basisadministraties persoonsgegevens BES kan lid worden van de openbare bibliotheek."
+      }
+    },
+    {
+      "id": "ft_lidmaatschap_omvat_voorziening",
+      "roles": [
+        {
+          "id": "r_lidmaatschap_omvat_voorziening_0",
+          "objectTypeId": "ot_lidmaatschap"
+        },
+        {
+          "id": "r_lidmaatschap_omvat_voorziening_1",
+          "objectTypeId": "ot_voorziening"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_lidmaatschap_omvat_voorziening",
+          "roleOrder": [
+            "r_lidmaatschap_omvat_voorziening_0",
+            "r_lidmaatschap_omvat_voorziening_1"
+          ],
+          "text": "{0} omvat {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_lidmaatschap_omvat_voorziening_inv",
+          "roleOrder": [
+            "r_lidmaatschap_omvat_voorziening_1",
+            "r_lidmaatschap_omvat_voorziening_0"
+          ],
+          "text": "{0} valt onder {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "L001",
+            "V01"
+          ]
+        },
+        {
+          "values": [
+            "L002",
+            "V01"
+          ]
+        },
+        {
+          "values": [
+            "L002",
+            "V02"
+          ]
+        },
+        {
+          "values": [
+            "L003",
+            "V02"
+          ]
+        }
+      ],
+      "note": "Bron: Wsob artikel 12 lid 2.\n\nArtikel 12 lid 2:\nHet lidmaatschap bij de openbare bibliotheek kan het gebruik van een fysieke voorziening, de digitale voorziening of beide voorzieningen omvatten.",
+      "meta": {
+        "description": "Bron: Wsob artikel 12 lid 2.\n\nArtikel 12 lid 2:\nHet lidmaatschap bij de openbare bibliotheek kan het gebruik van een fysieke voorziening, de digitale voorziening of beide voorzieningen omvatten."
+      }
+    },
+    {
+      "id": "ft_voorziening_is_van_soort_voorziening",
+      "roles": [
+        {
+          "id": "r_voorziening_is_van_soort_voorziening_0",
+          "objectTypeId": "ot_voorziening"
+        },
+        {
+          "id": "r_voorziening_is_van_soort_voorziening_1",
+          "objectTypeId": "ot_soort_voorziening"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_voorziening_is_van_soort_voorziening",
+          "roleOrder": [
+            "r_voorziening_is_van_soort_voorziening_0",
+            "r_voorziening_is_van_soort_voorziening_1"
+          ],
+          "text": "{0} is van {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_voorziening_is_van_soort_voorziening_inv",
+          "roleOrder": [
+            "r_voorziening_is_van_soort_voorziening_1",
+            "r_voorziening_is_van_soort_voorziening_0"
+          ],
+          "text": "{0} is de soort van {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "V01",
+            "fysiek"
+          ]
+        },
+        {
+          "values": [
+            "V02",
+            "digitaal"
+          ]
+        }
+      ],
+      "note": "Bron: Wsob artikel 12 lid 3.\n\nArtikel 12 lid 3:\nEen fysieke voorziening is een lokale bibliotheek, de digitale voorziening is de landelijke digitale bibliotheek.",
+      "meta": {
+        "description": "Bron: Wsob artikel 12 lid 3.\n\nArtikel 12 lid 3:\nEen fysieke voorziening is een lokale bibliotheek, de digitale voorziening is de landelijke digitale bibliotheek."
+      }
+    },
+    {
+      "id": "ft_lidmaatschap_heeft_contributiebedrag",
+      "roles": [
+        {
+          "id": "r_lidmaatschap_heeft_contributiebedrag_0",
+          "objectTypeId": "ot_lidmaatschap"
+        },
+        {
+          "id": "r_lidmaatschap_heeft_contributiebedrag_1",
+          "objectTypeId": "ot_contributiebedrag"
+        }
+      ],
+      "readings": [
+        {
+          "id": "rd_lidmaatschap_heeft_contributiebedrag",
+          "roleOrder": [
+            "r_lidmaatschap_heeft_contributiebedrag_0",
+            "r_lidmaatschap_heeft_contributiebedrag_1"
+          ],
+          "text": "{0} heeft {1}",
+          "isPrimary": true
+        },
+        {
+          "id": "rd_lidmaatschap_heeft_contributiebedrag_inv",
+          "roleOrder": [
+            "r_lidmaatschap_heeft_contributiebedrag_1",
+            "r_lidmaatschap_heeft_contributiebedrag_0"
+          ],
+          "text": "{0} geldt voor {1}"
+        }
+      ],
+      "population": [
+        {
+          "values": [
+            "L001",
+            "0.00"
+          ]
+        },
+        {
+          "values": [
+            "L002",
+            "40.00"
+          ]
+        },
+        {
+          "values": [
+            "L003",
+            "25.00"
+          ]
+        }
+      ],
+      "note": "L001 is van een jongere en kost dus niets, L002 is van een volwassene.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1 en 2.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven.\n\nArtikel 13 lid 2:\nVoor personen beneden de leeftijd van achttien jaar wordt geen tarief als bedoeld in artikel 14, contributie of geldelijke bijdrage vastgesteld voor de toegang tot door de Koninklijke Bibliotheek aangewezen digitale werken.",
+      "meta": {
+        "description": "L001 is van een jongere en kost dus niets, L002 is van een volwassene.\n\nAI-voorstel, gebaseerd op Wsob artikel 13 lid 1 en 2.\n\nArtikel 13 lid 1:\nVoor het uitlenen van gedrukte werken of overige werken door lokale bibliotheken aan personen beneden de leeftijd van achttien jaar wordt geen contributie of andere geldelijke bijdrage geheven.\n\nArtikel 13 lid 2:\nVoor personen beneden de leeftijd van achttien jaar wordt geen tarief als bedoeld in artikel 14, contributie of geldelijke bijdrage vastgesteld voor de toegang tot door de Koninklijke Bibliotheek aangewezen digitale werken.",
+        "shortDescription": "L001 is van een jongere en kost dus niets, L002 is van een volwassene."
+      }
+    }
+  ],
+  "subtypeRelations": [],
+  "constraints": [
+    {
+      "id": "vc_soort_voorziening",
+      "kind": "value",
+      "objectTypeId": "ot_soort_voorziening",
+      "ranges": [
+        {
+          "value": "fysiek"
+        },
+        {
+          "value": "digitaal"
+        }
+      ]
+    },
+    {
+      "id": "vc_register",
+      "kind": "value",
+      "objectTypeId": "ot_register",
+      "ranges": [
+        {
+          "value": "basisregistratie personen"
+        },
+        {
+          "value": "basisadministratie BES"
+        }
+      ]
+    },
+    {
+      "id": "uc_persoon_is_als_ingezetene_ingeschreven_in_register_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_persoon_is_als_ingezetene_ingeschreven_in_register_0",
+        "r_persoon_is_als_ingezetene_ingeschreven_in_register_1"
+      ]
+    },
+    {
+      "id": "uc_persoon_heeft_geboortedatum_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_persoon_heeft_geboortedatum_0"
+      ]
+    },
+    {
+      "id": "mc_persoon_heeft_geboortedatum_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_persoon_heeft_geboortedatum_0"
+      ]
+    },
+    {
+      "id": "uc_lidmaatschap_is_van_persoon_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_lidmaatschap_is_van_persoon_0"
+      ]
+    },
+    {
+      "id": "mc_lidmaatschap_is_van_persoon_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_lidmaatschap_is_van_persoon_0"
+      ]
+    },
+    {
+      "id": "uc_lidmaatschap_omvat_voorziening_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_lidmaatschap_omvat_voorziening_0",
+        "r_lidmaatschap_omvat_voorziening_1"
+      ]
+    },
+    {
+      "id": "mc_lidmaatschap_omvat_voorziening_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_lidmaatschap_omvat_voorziening_0"
+      ]
+    },
+    {
+      "id": "uc_voorziening_is_van_soort_voorziening_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_voorziening_is_van_soort_voorziening_0"
+      ]
+    },
+    {
+      "id": "mc_voorziening_is_van_soort_voorziening_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_voorziening_is_van_soort_voorziening_0"
+      ]
+    },
+    {
+      "id": "uc_lidmaatschap_heeft_contributiebedrag_0",
+      "kind": "uniqueness",
+      "roles": [
+        "r_lidmaatschap_heeft_contributiebedrag_0"
+      ]
+    },
+    {
+      "id": "mc_lidmaatschap_heeft_contributiebedrag_0",
+      "kind": "mandatory",
+      "roles": [
+        "r_lidmaatschap_heeft_contributiebedrag_0"
+      ]
+    }
+  ],
+  "meta": {
+    "description": "Het model volgt artikel 12 en 13. Een lidmaatschap is een eigen begrip, omdat het van een persoon is en een of beide voorzieningen kan omvatten. Het soort voorziening (fysiek of digitaal) is een waarde, omdat artikel 12 lid 3 die twee soorten noemt. De geboortedatum zit in het model, omdat de contributievrijstelling van de leeftijd afhangt."
+  },
+  "diagram": {
+    "shapes": {
+      "ot_persoon": {
+        "x": 120,
+        "y": 120
+      },
+      "ot_lidmaatschap": {
+        "x": 440,
+        "y": -20
+      },
+      "ot_voorziening": {
+        "x": 740,
+        "y": -50
+      },
+      "ot_soort_voorziening": {
+        "x": 1100,
+        "y": 40
+      },
+      "ot_register": {
+        "x": 1100,
+        "y": 150
+      },
+      "ot_geboortedatum": {
+        "x": 1100,
+        "y": 260
+      },
+      "ot_contributiebedrag": {
+        "x": 1100,
+        "y": 370
+      },
+      "ft_persoon_is_als_ingezetene_ingeschreven_in_register": {
+        "x": 610,
+        "y": 135,
+        "orientation": "horizontal"
+      },
+      "ft_persoon_heeft_geboortedatum": {
+        "x": 610,
+        "y": 190,
+        "orientation": "horizontal"
+      },
+      "ft_lidmaatschap_is_van_persoon": {
+        "x": 280,
+        "y": 120,
+        "orientation": "horizontal"
+      },
+      "ft_lidmaatschap_omvat_voorziening": {
+        "x": 600,
+        "y": 120,
+        "orientation": "horizontal"
+      },
+      "ft_voorziening_is_van_soort_voorziening": {
+        "x": 930,
+        "y": 80,
+        "orientation": "horizontal"
+      },
+      "ft_lidmaatschap_heeft_contributiebedrag": {
+        "x": 770,
+        "y": 245,
+        "orientation": "horizontal"
+      }
+    }
+  }
+}

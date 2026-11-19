@@ -1,0 +1,54 @@
+# Register van bronnen die met scripts/bron_naar_chunks.py naar Markdown-chunks gaan.
+#
+# Velden per bron:
+#   id          korte naam, ook de mapnaam onder bronnen/
+#   titel       volledige titel van de bron
+#   afkorting   korte naam voor in de titel van een chunk
+#   type        welke lezer het script gebruikt (nu: bwb-xml)
+#   url         leesbare pagina van de bron, voor mensen
+#   download    adres van het bestand dat het script ophaalt
+#   bestand     naam van dat bestand in origineel/
+#   doel        waarvoor we de bron gebruiken; komt in de header van elke chunk
+#   max_woorden langer artikel wordt per lid gesplitst (standaard 600)
+#   verwacht    aantallen voor de controle
+#   toelichting korte uitleg voor mensen, komt in README.md (optioneel)
+#     onderwerp     waar de bron over gaat
+#     doel          wat de bron wil bereiken
+#     betrokkenen   wie de bron raakt
+#     status        wie de toelichting heeft opgesteld en of hij gecontroleerd is
+
+auteur: Hans Blok
+
+bronnen:
+  - id: wsob
+    titel: Wet stelsel openbare bibliotheekvoorzieningen
+    afkorting: Wsob
+    type: bwb-xml
+    url: https://wetten.overheid.nl/BWBR0035878/2022-07-01
+    download: https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0035878/2022-07-01_0/xml/BWBR0035878_2022-07-01_0.xml
+    bestand: BWBR0035878_2022-07-01_0.xml
+    doel: Letterlijke wettekst als bron voor begrippen en regels in het ORM-model van het bibliotheekvoorbeeld.
+    max_woorden: 600
+    verwacht:
+      chunks: 31
+    toelichting:
+      onderwerp: >-
+        De wet regelt hoe de openbare bibliotheken in Nederland samen één netwerk vormen.
+        Dat netwerk bestaat uit de lokale bibliotheken, de provinciale ondersteuningsinstellingen
+        en de Koninklijke Bibliotheek, die de landelijke digitale bibliotheek beheert (artikel 2 en 7).
+        De wet noemt vijf functies die elke openbare bibliotheek heeft, zoals kennis en informatie
+        beschikbaar stellen en lezen bevorderen (artikel 5).
+        Ook regelt de wet wie lid kan worden en dat jongeren onder de 18 geen contributie betalen
+        (artikel 12 en 13).
+      doel: >-
+        Het doel is dat iedereen toegang heeft tot een bibliotheek die onafhankelijk, betrouwbaar,
+        toegankelijk, pluriform en authentiek is (artikel 4).
+        Zo dragen bibliotheken bij aan de persoonlijke ontwikkeling en de maatschappelijke kansen
+        van mensen (artikel 5).
+      betrokkenen: >-
+        De wet raakt in de eerste plaats de bibliotheken zelf en de Koninklijke Bibliotheek.
+        Rijk, provincies en gemeenten zijn samen verantwoordelijk voor het netwerk, en moeten eerst
+        overleggen voordat ze een besluit nemen waardoor een bibliotheek verdwijnt (artikel 6).
+        Voor inwoners regelt de wet dat iedereen die als ingezetene in de basisregistratie personen
+        staat, lid kan worden (artikel 12).
+      status: Opgesteld door AI op basis van de artikelen 2, 4 tot en met 7, 12 en 13. Nog niet gecontroleerd door een deskundige.
